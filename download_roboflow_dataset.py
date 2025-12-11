@@ -69,8 +69,8 @@ def main():
     parser.add_argument(
         "--api_key",
         type=str,
-        default="",
-        help="API ключ Roboflow (можно не указывать, будет использована переменная окружения ROBOFLOW_API_KEY)"
+        default="IYwUdRPmNzuSjy8A6cOr",
+        help="API ключ Roboflow"
     )
     parser.add_argument(
         "--workspace",
@@ -81,7 +81,7 @@ def main():
     parser.add_argument(
         "--project",
         type=str,
-        default="my-normal-dataset",
+        default="complete-wxatb",
         help="Имя проекта в Roboflow"
     )
     parser.add_argument(
@@ -101,7 +101,7 @@ def main():
         type=str,
         default="coco",
         choices=["coco", "yolov8"],
-        help="Формат датасета"
+        help="Формат датасета (coco для RT-DETR, yolov8 для YOLO)"
     )
     
     args = parser.parse_args()

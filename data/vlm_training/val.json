@@ -1,0 +1,4160 @@
+[
+  {
+    "id": "sample_1552",
+    "image": "data\\roboflow_dataset\\valid\\b011a79a-AluCan37_jpg.rf.3f85a7707d38d78588b0a91910f32227.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_674",
+    "image": "data\\roboflow_dataset\\test\\vina-83-_jpg.rf.e8696ae200cee1ccd8cba8a42ca3af12.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_240",
+    "image": "data\\roboflow_dataset\\valid\\images_54_jpeg_jpg.rf.3078c89497929dc57cf69b7ff819a6cb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 metal objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1642",
+    "image": "data\\roboflow_dataset\\valid\\Vidrio_13_jpg.rf.fb04d8cf7881ed77e77f4ffa039bd872.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_875",
+    "image": "data\\roboflow_dataset\\test\\n02823750_8916_jpg.rf.f5be2644d36b4bace74a298289e19cc6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1971",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1171_jpg.rf.5599ca7cdc00eaf31b65d6eac4624a48.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 metal object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1989",
+    "image": "data\\roboflow_dataset\\valid\\cans2-71-_jpeg_jpg.rf.fd57400b6f9bc92c40b2492037c71a81.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 2 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1664",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152646_jpg.rf.fb708b9118ed635c32b8abe32c12c782.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [221, 110, 400, 423]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_681",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-177-_jpg.rf.0b2d2e2698eb4741cec54d184ba2e03e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_968",
+    "image": "data\\roboflow_dataset\\test\\plastic110_jpg.rf.f68674c13308403a36e14c039b88ffa7.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. is in the bottom right corner of the picture"
+      }
+    ]
+  },
+  {
+    "id": "sample_382",
+    "image": "data\\roboflow_dataset\\valid\\cropped_pb_274_jpg.rf.6287885e6d40088fe64fb63b7d4d4268.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 plastic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_60",
+    "image": "data\\roboflow_dataset\\valid\\20230518_122648_jpg.rf.e353d02af7987b04413cbe31ff0c43df.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2214",
+    "image": "data\\roboflow_dataset\\test\\th_true-77-_jpg.rf.f6202744ad4ccf54dd4b6bd790eee17a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2671",
+    "image": "data\\roboflow_dataset\\valid\\cardboard1333_jpg.rf.c6f31f9cc44c6e2e36f304643be00810.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_207",
+    "image": "data\\roboflow_dataset\\valid\\77_png.rf.ad3343cc2b51c19530044dc1bddf42f7.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_401",
+    "image": "data\\roboflow_dataset\\valid\\2cbce789-R_1641_jpg.rf.487af00b0ff07597ca51d479fd46eaaf.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2254",
+    "image": "data\\roboflow_dataset\\valid\\cans2-58-_jpeg_jpg.rf.2025554e6e81208d513985ee9fb20ff0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 5 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1815",
+    "image": "data\\roboflow_dataset\\test\\00923_jpeg.rf.36525b609455eccb1ac5ace014838111.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [65, 186, 226, 590]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_308",
+    "image": "data\\roboflow_dataset\\test\\825fb52a-AluCan170_jpg.rf.9655339c07648f364b51b966666c088f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. checkered fabric"
+      }
+    ]
+  },
+  {
+    "id": "sample_1023",
+    "image": "data\\roboflow_dataset\\test\\glass133_jpg.rf.db32577228a2b43dd0c4d81ff7593393.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, it is a beer bottle with a red label on it"
+      }
+    ]
+  },
+  {
+    "id": "sample_1894",
+    "image": "data\\roboflow_dataset\\test\\black_board1_284_jpg.rf.8e2075d8003b8728dca81243e116b206.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2737",
+    "image": "data\\roboflow_dataset\\test\\IMG_2382_23_11zon_jpg.rf.42d157c82aaaab849b713028ba538b5f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_751",
+    "image": "data\\roboflow_dataset\\test\\00989_jpg.rf.4afaf533488b3712579e3ed735e18736.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [137, 431, 249, 550]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2965",
+    "image": "data\\roboflow_dataset\\valid\\dunhill-cigarettes_19f_png.rf.5b55e8849a5b23688316d7683f7389f5.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_574",
+    "image": "data\\roboflow_dataset\\valid\\0f2e89a8-AluCan291_jpg.rf.2a7f49987a2b1a3166a8b296558e9a50.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1837",
+    "image": "data\\roboflow_dataset\\test\\00977_jpeg.rf.702717ba91ace8e37a1f68f8aad1b507.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2926",
+    "image": "data\\roboflow_dataset\\valid\\62c1715b8961562c1715b8961a_frame19_jpg.rf.a61ce14de0cfc19dc4dd807a19c31cca.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2726",
+    "image": "data\\roboflow_dataset\\test\\cans2-35-_jpeg_jpg.rf.cc3cdb36261e717942738a310867db1d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. upcycling idea? Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. is upcycling idea?"
+      }
+    ]
+  },
+  {
+    "id": "sample_784",
+    "image": "data\\roboflow_dataset\\valid\\722bc2ca-AluCan943_jpg.rf.68bff69d89568034def2b1c32d8c9199.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [78, 53, 263, 201]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. checkered fabric"
+      }
+    ]
+  },
+  {
+    "id": "sample_1018",
+    "image": "data\\roboflow_dataset\\valid\\-238_jpg.rf.a407ca2a22d863353a79773353ee4922.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_447",
+    "image": "data\\roboflow_dataset\\valid\\Glass499_jpg.rf.196caab34a88a2e69c4a64af5c42b52f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1389",
+    "image": "data\\roboflow_dataset\\valid\\62ddcec059ddb62ddcec059de2_frame18_jpg.rf.cff6c9fe144db6fc5170e641ad3a64a0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1649",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1657_jpg.rf.a77c2171e53898ef059efe8f82bc5740.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_248",
+    "image": "data\\roboflow_dataset\\valid\\260_png_jpg.rf.ca23b869c35cc840aaaf627afe441a99.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_403",
+    "image": "data\\roboflow_dataset\\valid\\2cbce789-R_1641_jpg.rf.487af00b0ff07597ca51d479fd46eaaf.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a metal at [105, 50, 502, 612]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. red soda can on a white background"
+      }
+    ]
+  },
+  {
+    "id": "sample_2646",
+    "image": "data\\roboflow_dataset\\valid\\juice-205-_jpg.rf.bb6fdaceabb59b86acd2ccebe9043ec4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2676",
+    "image": "data\\roboflow_dataset\\valid\\glass441_jpg.rf.e82496e42498a73a92f2dead34fb9e0a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_221",
+    "image": "data\\roboflow_dataset\\valid\\glass2428_jpg.rf.722ac0a6a07c520750a9088d8d059bb0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1912",
+    "image": "data\\roboflow_dataset\\test\\faf6814a-R_4245_jpg.rf.24a65a9f7b1bb7019fdef6e33a093843.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1683",
+    "image": "data\\roboflow_dataset\\valid\\-287_jpg.rf.1baa84d17b2949d295a49eae3af9a343.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [222, 125, 287, 575]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.xl"
+      }
+    ]
+  },
+  {
+    "id": "sample_1734",
+    "image": "data\\roboflow_dataset\\valid\\bc2073c9-R_2010_jpg.rf.f335721da021de781ea83bb067c23b4e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 3 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1451",
+    "image": "data\\roboflow_dataset\\valid\\glass488_jpg.rf.1db5e836de9590c51c4268cb0f185eb9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1765",
+    "image": "data\\roboflow_dataset\\test\\cans2-238-_jpeg_jpg.rf.5f49765a77e7536bd449ea110cbecbb7.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [0, 276, 215, 639]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a can of mon"
+      }
+    ]
+  },
+  {
+    "id": "sample_2699",
+    "image": "data\\roboflow_dataset\\test\\naver_0300_jpg.rf.fdf44758874b2b577c81bf8e67830e14.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [281, -1, 415, 511]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_397",
+    "image": "data\\roboflow_dataset\\valid\\black_board1_138_jpg.rf.1bd94f96a92f041143e19877fd256b55.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [276, 382, 367, 578]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly green chalkboard with a red cup on it"
+      }
+    ]
+  },
+  {
+    "id": "sample_386",
+    "image": "data\\roboflow_dataset\\valid\\20230512_093048_jpg.rf.05283616e1de533f8ff4515fcf407cc5.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_779",
+    "image": "data\\roboflow_dataset\\valid\\722bc2ca-AluCan943_jpg.rf.68bff69d89568034def2b1c32d8c9199.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. checkered fabric"
+      }
+    ]
+  },
+  {
+    "id": "sample_1667",
+    "image": "data\\roboflow_dataset\\valid\\8aa170c5-AluCan161_jpg.rf.e99dc6a3430780da8f1640a331555753.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1937",
+    "image": "data\\roboflow_dataset\\valid\\metal410_jpg.rf.afc8095d4a50a0682f0579762d0b72fa.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_995",
+    "image": "data\\roboflow_dataset\\valid\\images_126_jpeg.rf.4399241372c0f6b7dfabfe96a4d968bc.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 metal objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1936",
+    "image": "data\\roboflow_dataset\\valid\\metal410_jpg.rf.afc8095d4a50a0682f0579762d0b72fa.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2360",
+    "image": "data\\roboflow_dataset\\test\\AnyConv-com__20230612_071531639_iOS_jpg.rf.9b3281777094d095dabc1ad7ec5986f6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2338",
+    "image": "data\\roboflow_dataset\\test\\paper978_jpg.rf.de4bc5a1f065fddde2b5dd0fdac031d0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [169, 75, 482, 576]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly, life needs more flip flops and popped tops"
+      }
+    ]
+  },
+  {
+    "id": "sample_541",
+    "image": "data\\roboflow_dataset\\test\\n02823750_1200_jpg.rf.ea69edd91c812c50394a75f94263433d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2769",
+    "image": "data\\roboflow_dataset\\test\\metal248_jpg.rf.e49c8633f3761a00cff29bcfa02f7463.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_877",
+    "image": "data\\roboflow_dataset\\test\\n02823750_8916_jpg.rf.f5be2644d36b4bace74a298289e19cc6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1988",
+    "image": "data\\roboflow_dataset\\valid\\cans2-71-_jpeg_jpg.rf.fd57400b6f9bc92c40b2492037c71a81.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. can ' s aluminum steel and tin Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. cans aluminum steel and tin"
+      }
+    ]
+  },
+  {
+    "id": "sample_1140",
+    "image": "data\\roboflow_dataset\\test\\7686ae45-AluCan638_jpg.rf.d2bd7a09ab29f8d095158731018e13bf.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_974",
+    "image": "data\\roboflow_dataset\\test\\glass92_jpg.rf.9f59b76df57d3152ba17d3c7650c3620.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. a glass of water sits on a white surface"
+      }
+    ]
+  },
+  {
+    "id": "sample_2105",
+    "image": "data\\roboflow_dataset\\valid\\glass400_jpg.rf.bd0085817a169062e2bab263caf1289a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2747",
+    "image": "data\\roboflow_dataset\\valid\\42_jpg.rf.ab75f9575383d115ca4b8eba8697018e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 3 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1353",
+    "image": "data\\roboflow_dataset\\test\\0225092656_jpg.rf.f550793d7548d81e44f8fa01b6ac2fa4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 plastic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_128",
+    "image": "data\\roboflow_dataset\\test\\AnyConv-com__20230612_071824556_iOS_jpg.rf.c60f9a20b56e80c2c28d9fb487fa83fb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_276",
+    "image": "data\\roboflow_dataset\\valid\\cans2-60-_jpeg_jpg.rf.65ec5b56cc9c5b4a2e51b8f71dc80e0b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a metal at [124, 80, 265, 610]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly, there is a person holding two cans of beer"
+      }
+    ]
+  },
+  {
+    "id": "sample_937",
+    "image": "data\\roboflow_dataset\\test\\00975_jpg.rf.bbdb7857695ca61858fda679ea1ac8ef.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on., there is a cup of coffee in the foreground"
+      }
+    ]
+  },
+  {
+    "id": "sample_241",
+    "image": "data\\roboflow_dataset\\valid\\images_54_jpeg_jpg.rf.3078c89497929dc57cf69b7ff819a6cb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 3 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_2584",
+    "image": "data\\roboflow_dataset\\valid\\150_jpg.rf.7d8e1fd3e7f647565f9f92e000051194.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_290",
+    "image": "data\\roboflow_dataset\\valid\\62ab2cba6d6fa62ab2cba6d701_frame5_jpg.rf.2cd071dbd3ccdf87cd6c47aaf3071abb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on., there is a yellow box with a yellow lid and a blue lid"
+      }
+    ]
+  },
+  {
+    "id": "sample_29",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable639_jpg.rf.00d00dc717e7ed78899739ce0134405e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any organic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 organic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2949",
+    "image": "data\\roboflow_dataset\\test\\metal375_jpg.rf.0bb3637008a2085e790f0d88b938ee8b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2410",
+    "image": "data\\roboflow_dataset\\test\\cans2-77-_jpeg.rf.2813fb5d9f08b5f949f88a7f8884bf1f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_942",
+    "image": "data\\roboflow_dataset\\test\\00975_jpg.rf.bbdb7857695ca61858fda679ea1ac8ef.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [202, 131, 430, 510]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on., there is a cup of coffee in the foreground"
+      }
+    ]
+  },
+  {
+    "id": "sample_2268",
+    "image": "data\\roboflow_dataset\\test\\paper959_jpg.rf.1bb60a0a59075eaaa6d5c3f780b6bce6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2409",
+    "image": "data\\roboflow_dataset\\test\\cans2-77-_jpeg.rf.2813fb5d9f08b5f949f88a7f8884bf1f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_86",
+    "image": "data\\roboflow_dataset\\valid\\0a433b08-AluCan281_jpg.rf.20eda05270f5cc41f5ac516a69e58b2a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1384",
+    "image": "data\\roboflow_dataset\\test\\paper884_jpg.rf.36e88e679bedc31b63f5df19f23f1a29.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_262",
+    "image": "data\\roboflow_dataset\\valid\\glass326_jpg.rf.8296bb1862778cefdd901ed94854da66.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_920",
+    "image": "data\\roboflow_dataset\\valid\\-318_jpg.rf.0832d006d06f69ecf84cfbb40b87eca9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [34, 51, 148, 605]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly green"
+      }
+    ]
+  },
+  {
+    "id": "sample_1015",
+    "image": "data\\roboflow_dataset\\test\\301_png.rf.0cc2b3e0ffb7c4ba5f23e978769d0ee6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [472, 0, 554, 399]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_495",
+    "image": "data\\roboflow_dataset\\valid\\95f808f7-R_1647_jpg.rf.9783b503aba259784ce636d050925905.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1849",
+    "image": "data\\roboflow_dataset\\valid\\b70fb202-AluCan106_jpg.rf.66994a1602d1c694308ba25a41c1683c.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2119",
+    "image": "data\\roboflow_dataset\\valid\\images-2024-04-11T000627-682_jpeg.rf.d162496ad4200d0e20742c9a25fb1ec1.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1794",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152238_jpg.rf.f07f6b258eb9723236f3473f6c2a1e28.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1529",
+    "image": "data\\roboflow_dataset\\test\\paper1053_jpg.rf.add514baaed26c338f26e9ec96f3ed48.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [0, 102, 639, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2953",
+    "image": "data\\roboflow_dataset\\valid\\9ea07edf-AluCan624_jpg.rf.278ccbe07a58d270b30500e82d4e6a18.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2751",
+    "image": "data\\roboflow_dataset\\valid\\42_jpg.rf.ab75f9575383d115ca4b8eba8697018e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [253, 35, 403, 547]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a glass of beer and a bottle on the table next to it"
+      }
+    ]
+  },
+  {
+    "id": "sample_1634",
+    "image": "data\\roboflow_dataset\\valid\\vina-33-_jpg.rf.71bfb686d31d1c4d644571f3254b6b92.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.03"
+      }
+    ]
+  },
+  {
+    "id": "sample_1276",
+    "image": "data\\roboflow_dataset\\test\\86e82ca9-R_1866_jpg.rf.758f640571401ba1702ebebac074cd4b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_823",
+    "image": "data\\roboflow_dataset\\test\\fruitjuice-13-_jpg.rf.2218e036699ca60f114a9c2cb4a7e829.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2208",
+    "image": "data\\roboflow_dataset\\test\\plastic227_jpg.rf.73f0270ee6879ab76c41388e03ff16f0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_867",
+    "image": "data\\roboflow_dataset\\valid\\cans2-80-_jpeg.rf.ab18ffde62d1e0626af0400bf5783b31.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly red cans of soda on a white background Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly, this is the most popular beverage in the united states Here is a metal. a metal in this image. describe where it is located and what..."
+      }
+    ]
+  },
+  {
+    "id": "sample_1733",
+    "image": "data\\roboflow_dataset\\valid\\bc2073c9-R_2010_jpg.rf.f335721da021de781ea83bb067c23b4e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on., pop - art pop - art Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on., pop - art, and comic"
+      }
+    ]
+  },
+  {
+    "id": "sample_2484",
+    "image": "data\\roboflow_dataset\\valid\\glass478_jpg.rf.b7779d274b79286d159afbd621eaee4b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2161",
+    "image": "data\\roboflow_dataset\\test\\28923820-AluCan104_jpg.rf.7e1f744b55a8ac92b1ceae4fa7024a2d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [280, 119, 639, 639]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1085",
+    "image": "data\\roboflow_dataset\\test\\plastic709_jpg.rf.d592525f47d5cb06b523b92e5a5e0cbd.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly Here is a plastic. a plastic in this image...."
+      }
+    ]
+  },
+  {
+    "id": "sample_676",
+    "image": "data\\roboflow_dataset\\test\\vina-83-_jpg.rf.e8696ae200cee1ccd8cba8a42ca3af12.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2251",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1158_jpg.rf.13011061d6ed6e5491de5fb2bad8aed6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [386, 24, 528, 559]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on. - stock photo"
+      }
+    ]
+  },
+  {
+    "id": "sample_1946",
+    "image": "data\\roboflow_dataset\\test\\black_board1_112_jpg.rf.e7f7fa6ada43df0be68ebc461c3d1f07.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 plastic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2702",
+    "image": "data\\roboflow_dataset\\valid\\glass177_jpg.rf.7b18e74fa4aa8e27b78ca791c15740b0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_525",
+    "image": "data\\roboflow_dataset\\valid\\images_30_jpeg_jpg.rf.0fb911b0611cb2b74f29978cd93af869.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 9 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_515",
+    "image": "data\\roboflow_dataset\\valid\\88_jpg.rf.6f1b875a44aa6e481ee99d44cd3135d4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2181",
+    "image": "data\\roboflow_dataset\\valid\\331_jpg.rf.6f24eb99f017252ff58b1444aea901a5.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_283",
+    "image": "data\\roboflow_dataset\\valid\\plastic436_jpg.rf.1fa074e87703d6a30e07478d6dcd849b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1990",
+    "image": "data\\roboflow_dataset\\valid\\cans2-71-_jpeg_jpg.rf.fd57400b6f9bc92c40b2492037c71a81.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_350",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1023_jpg.rf.2cb94ce279a46700e61fba65a3b094b2.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any organic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 19 organic objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_2923",
+    "image": "data\\roboflow_dataset\\test\\87fe487e-AluCan238_jpg.rf.4533c3d7d57026905d2928e6eb87a369.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2868",
+    "image": "data\\roboflow_dataset\\valid\\glass157_jpg.rf.cf0a208fd93ff392e09cf91b9d8e3b60.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [0, 0, 513, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_986",
+    "image": "data\\roboflow_dataset\\test\\Untitled-design_png.rf.3a4c2a4219587952644a1804593ab3e9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [445, 15, 548, 602]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_237",
+    "image": "data\\roboflow_dataset\\valid\\239_jpg.rf.fb066b9659a7af926412d7ba230e31f6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [80, 331, 305, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_980",
+    "image": "data\\roboflow_dataset\\test\\Untitled-design_png.rf.3a4c2a4219587952644a1804593ab3e9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly Here is a paper. a paper in this image. describe where it is..."
+      }
+    ]
+  },
+  {
+    "id": "sample_1259",
+    "image": "data\\roboflow_dataset\\valid\\glass2461_jpg.rf.f9b833cb957f53808bbbe7e72aae9c29.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [344, 69, 507, 529]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
+      }
+    ]
+  },
+  {
+    "id": "sample_1486",
+    "image": "data\\roboflow_dataset\\valid\\276e7fe9-R_2086_jpg.rf.124c76d29e82d32f12b3178ec615287e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [200, 29, 351, 334]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_458",
+    "image": "data\\roboflow_dataset\\test\\plastic194_jpg.rf.70b6032eea350bb1b75a95deffb475d1.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_79",
+    "image": "data\\roboflow_dataset\\valid\\0ec7094b-AluCan346_jpg.rf.79ebcc7ccd528b068ad8472f5ecfe66f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2001",
+    "image": "data\\roboflow_dataset\\valid\\62d66e7807ebd62d66e7807ec6_frame46_jpg.rf.1f575d3a58f89ca97c91e6576d0278e4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1327",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153141_jpg.rf.3e9b8142279b49078e7bf15d26af02bc.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2453",
+    "image": "data\\roboflow_dataset\\valid\\1599205380404_jpg.rf.fa3ffc2125c1dde8fbe3f740f01a9f17.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2",
+    "image": "data\\roboflow_dataset\\test\\milk-108-_jpg.rf.544654b35d4c767cefb81bbc084d0ee4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2172",
+    "image": "data\\roboflow_dataset\\test\\88f0b28c-AluCan855_jpg.rf.702c404e1467bfccc5b7c84848a9ddf2.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2209",
+    "image": "data\\roboflow_dataset\\test\\plastic227_jpg.rf.73f0270ee6879ab76c41388e03ff16f0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [77, 10, 626, 516]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_661",
+    "image": "data\\roboflow_dataset\\valid\\63175eb17be1e63175eb17be24_frame22_jpg.rf.063d033159702dc45b23b9906b7429ed.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.wwwwwwww"
+      }
+    ]
+  },
+  {
+    "id": "sample_1531",
+    "image": "data\\roboflow_dataset\\test\\small-milk-carton-mockup_638990-3_jpg.rf.2128da09a95225c83701f2090cbc6bd1.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2841",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1071_jpg.rf.998e0d4f8aa73f1e5f0fc0d0dbdf92e9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on. degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees degrees Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on. degrees degrees degrees..."
+      }
+    ]
+  },
+  {
+    "id": "sample_2955",
+    "image": "data\\roboflow_dataset\\valid\\9ea07edf-AluCan624_jpg.rf.278ccbe07a58d270b30500e82d4e6a18.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2494",
+    "image": "data\\roboflow_dataset\\test\\a9232f35a80cf7e4066e5398cdebca8_jpg.rf.b54178675b4cf9c70e3688d71e3cb8d4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [243, 93, 393, 452]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly, there is a bottle of water and a computer mouse on the table"
+      }
+    ]
+  },
+  {
+    "id": "sample_2810",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-png-3-_png.rf.7eecf871be5595bab231988ebcdacb37.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on. is the best seller"
+      }
+    ]
+  },
+  {
+    "id": "sample_2617",
+    "image": "data\\roboflow_dataset\\valid\\e92954db-R_4299_jpg.rf.14c90a54d3fc38e160d63586c9b32d8e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1222",
+    "image": "data\\roboflow_dataset\\valid\\plastic296_jpg.rf.6be855cbd52d9a09324a8cc507d2b893.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2561",
+    "image": "data\\roboflow_dataset\\test\\plastic961_jpg.rf.a3b83988962fe4d9e30028bed6525e62.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_435",
+    "image": "data\\roboflow_dataset\\valid\\86d2b6ab-AluCan949_jpg.rf.87b3af372b75a00b07ca94071c4df75d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2079",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1290_jpg.rf.8f518033862fcdc2c93fec8a92fcbd1c.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_731",
+    "image": "data\\roboflow_dataset\\valid\\hop-20-_jpg.rf.9f6225a76c166f5370eb6aa2221f1cc4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2050",
+    "image": "data\\roboflow_dataset\\test\\bac6e237-AluCan21_jpg.rf.31ff02a0aace5528fb33bd168bde2ae2.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1078",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152639_jpg.rf.a1fa34e4fb3d1ce4cb57ba121434746e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [125, 119, 471, 506]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_13",
+    "image": "data\\roboflow_dataset\\valid\\0217015045_jpg.rf.e841e76b05525fb9e85e2ae44a31b1fb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1858",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153208_jpg.rf.5c382440cdeaaebcf2270fc435837f0d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [210, 1, 517, 573]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_647",
+    "image": "data\\roboflow_dataset\\valid\\IMG_3947_JPG_jpg.rf.a64b5986623794a27060b0f12ec9e419.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1780",
+    "image": "data\\roboflow_dataset\\valid\\glass100_jpg.rf.57828f243f3423ef22abc368292d7246.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1202",
+    "image": "data\\roboflow_dataset\\test\\trai_cay-32-_jpg.rf.0800f27376c98451bb102d5cd805258c.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [134, 0, 494, 639]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2976",
+    "image": "data\\roboflow_dataset\\test\\7-oz-karton-bardak-100-lu-kcm6704961-1-71ebbb3e1d5b425a9adc22e7bc983941_jpg.rf.e0390330778cbd3e56a6d829271d0539.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2941",
+    "image": "data\\roboflow_dataset\\valid\\metal60_jpg.rf.44a0f08f0daac4e632dc29953c3a3e9a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2625",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable691_jpg.rf.8b62733686605d4db25b7c1136248562.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1092",
+    "image": "data\\roboflow_dataset\\test\\received_589739943291219_jpeg.rf.d34f235cd0f9760d797d7bbb0a4ff20a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2199",
+    "image": "data\\roboflow_dataset\\valid\\3d0897de-R_1939_jpg.rf.73f8d695776846f23c1c0f48e3bb1b71.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2792",
+    "image": "data\\roboflow_dataset\\valid\\IMG_1700_Original_jpeg.rf.f56b2622ac8d86f75b2aaf2b0fbd8057.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_469",
+    "image": "data\\roboflow_dataset\\valid\\cans2-80-_jpeg_jpg.rf.74562908c78a0684e3f6b37aad88ab76.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a metal at [127, 194, 238, 427]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly, there are four cans of soda"
+      }
+    ]
+  },
+  {
+    "id": "sample_2786",
+    "image": "data\\roboflow_dataset\\valid\\62a74efee7f6d62a74efee7f74_frame0_jpg.rf.e57901012a76a65be8db3fcf151a7252.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_47",
+    "image": "data\\roboflow_dataset\\test\\plastic44_jpg.rf.231a2f6870274253e978ad87830e8d84.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2266",
+    "image": "data\\roboflow_dataset\\test\\00958_jpeg.rf.125ac0953b5a3319c915a2912ca528ac.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [67, 250, 344, 516]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1029",
+    "image": "data\\roboflow_dataset\\valid\\glass1143_jpg.rf.7f8e0d16a1e31f9928f69e9abfcd71b7.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2167",
+    "image": "data\\roboflow_dataset\\valid\\-68_jpg.rf.4f01a58c04da0d5e4fbcc3a9c113cefa.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [225, 119, 418, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.07"
+      }
+    ]
+  },
+  {
+    "id": "sample_1917",
+    "image": "data\\roboflow_dataset\\valid\\157_jpg.rf.fe6db98ad4504375589a98001ab467ff.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2440",
+    "image": "data\\roboflow_dataset\\valid\\fruitjuice-4-_jpeg.rf.85250b4eae0621b221df429453e8e807.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.777"
+      }
+    ]
+  },
+  {
+    "id": "sample_1563",
+    "image": "data\\roboflow_dataset\\valid\\plastic60_jpg.rf.2d05aaac5cf257f154e35092480bfbeb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1576",
+    "image": "data\\roboflow_dataset\\valid\\plastic156_jpg.rf.ba6fff5cc5ed7661e80545b0eca11099.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_260",
+    "image": "data\\roboflow_dataset\\valid\\glass326_jpg.rf.8296bb1862778cefdd901ed94854da66.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2442",
+    "image": "data\\roboflow_dataset\\valid\\fruitjuice-4-_jpeg.rf.85250b4eae0621b221df429453e8e807.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1729",
+    "image": "data\\roboflow_dataset\\valid\\76f9b2c4-AluCan718_jpg.rf.fa514fda41b2971a62c8b413b488dc36.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2787",
+    "image": "data\\roboflow_dataset\\valid\\62a74efee7f6d62a74efee7f74_frame0_jpg.rf.e57901012a76a65be8db3fcf151a7252.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_655",
+    "image": "data\\roboflow_dataset\\valid\\plastic425_jpg.rf.169ea4c5c7546fdf940448308ab11a27.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly there is a bottle of water on the floor"
+      }
+    ]
+  },
+  {
+    "id": "sample_2570",
+    "image": "data\\roboflow_dataset\\valid\\827_p5_jpg.rf.1a65ec47f0e8ec1686e3bc77c09a9f4f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a metal at [398, 244, 534, 538]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly blue background"
+      }
+    ]
+  },
+  {
+    "id": "sample_626",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1281_jpg.rf.1c454a66842b1c9b9eda46fc353ef25d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_449",
+    "image": "data\\roboflow_dataset\\valid\\Glass499_jpg.rf.196caab34a88a2e69c4a64af5c42b52f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [0, 247, 480, 437]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a small amount of water in the bottle"
+      }
+    ]
+  },
+  {
+    "id": "sample_192",
+    "image": "data\\roboflow_dataset\\valid\\mii-4-_jpeg.rf.1db0382b390770eda3f2a3c032e9f59f.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_372",
+    "image": "data\\roboflow_dataset\\test\\paper922_jpg.rf.005f671bb40ca38684f8c60acf32bf13.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [206, 200, 429, 447]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.white"
+      }
+    ]
+  },
+  {
+    "id": "sample_2021",
+    "image": "data\\roboflow_dataset\\test\\IMG_3940_JPG_jpg.rf.741083c85e536223e2caf795285b5784.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2087",
+    "image": "data\\roboflow_dataset\\test\\00960_jpg.rf.0adae17234d02208a0368ca6d0781d4e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [230, 188, 372, 352]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_566",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152611_jpg.rf.d53a3a22f6db570ce08ab835da86cc56.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_898",
+    "image": "data\\roboflow_dataset\\valid\\naver_0195_jpg.rf.a00bc2df88b41b9a1346c43cd6e99988.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1482",
+    "image": "data\\roboflow_dataset\\valid\\276e7fe9-R_2086_jpg.rf.124c76d29e82d32f12b3178ec615287e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1635",
+    "image": "data\\roboflow_dataset\\valid\\vina-33-_jpg.rf.71bfb686d31d1c4d644571f3254b6b92.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2390",
+    "image": "data\\roboflow_dataset\\test\\631f2b2a82d51631f2b2a82d57_frame11_jpg.rf.8048813107c3956f2b1f85c85e607413.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1754",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152644_jpg.rf.f40c914ed3813e898e60d76518033efe.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2394",
+    "image": "data\\roboflow_dataset\\valid\\125_jpg.rf.2feadbd3ea7eff675ea90356cd94e170.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 2 glass objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1076",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152639_jpg.rf.a1fa34e4fb3d1ce4cb57ba121434746e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2207",
+    "image": "data\\roboflow_dataset\\test\\plastic227_jpg.rf.73f0270ee6879ab76c41388e03ff16f0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2299",
+    "image": "data\\roboflow_dataset\\valid\\cardboard1284_jpg.rf.9e39bda34eae3a0d8ceef34fa6f4b124.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1010",
+    "image": "data\\roboflow_dataset\\test\\301_png.rf.0cc2b3e0ffb7c4ba5f23e978769d0ee6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 2 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2971",
+    "image": "data\\roboflow_dataset\\valid\\metal128_jpg.rf.ecf7dd7129c03cf6f8f54989a4b3a878.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 metal object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1084",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-100-_jpg.rf.712562af3a36d786b23cd19d16111b5d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [123, 53, 486, 560]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_585",
+    "image": "data\\roboflow_dataset\\valid\\glass1032_jpg.rf.5e197b9d2e21242a1ff6025499675931.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [40, 203, 577, 476]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1879",
+    "image": "data\\roboflow_dataset\\valid\\maxresdefault_2_jpg.rf.a9c2765f877fa8cd6987537c6cf633ae.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 3 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2633",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable631_jpg.rf.7f9580fdb60d065e4673b886f1ecf56b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a metal at [3, 13, 608, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on. - apple"
+      }
+    ]
+  },
+  {
+    "id": "sample_1620",
+    "image": "data\\roboflow_dataset\\valid\\black_board1_217_jpg.rf.18eec89d4d84979527881ccb2c822502.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2044",
+    "image": "data\\roboflow_dataset\\test\\images_jpg.rf.ed7bf77f15c521eb3b3d1eaa09db4610.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.xl"
+      }
+    ]
+  },
+  {
+    "id": "sample_2684",
+    "image": "data\\roboflow_dataset\\test\\00988_jpg.rf.77661ca2fca08c9a1df231337e138e89.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_870",
+    "image": "data\\roboflow_dataset\\valid\\cans2-80-_jpeg.rf.ab18ffde62d1e0626af0400bf5783b31.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1288",
+    "image": "data\\roboflow_dataset\\test\\crushed_plastic_bottle43_jpg.rf.d6d27702a9c0b8285dbe499f11fb7ae3.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2323",
+    "image": "data\\roboflow_dataset\\valid\\62d66e7807ebd62d66e7807ec6_frame45_jpg.rf.87d48ac9fa1b83d80f58ca597252bd86.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_864",
+    "image": "data\\roboflow_dataset\\test\\62a3371f42f9562a3371f42f9c_frame24_jpg.rf.46e7ab59eda79981df85f00ca8289fa4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_271",
+    "image": "data\\roboflow_dataset\\valid\\cans2-60-_jpeg_jpg.rf.65ec5b56cc9c5b4a2e51b8f71dc80e0b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 3 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1096",
+    "image": "data\\roboflow_dataset\\test\\received_589739943291219_jpeg.rf.d34f235cd0f9760d797d7bbb0a4ff20a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1643",
+    "image": "data\\roboflow_dataset\\valid\\Vidrio_13_jpg.rf.fb04d8cf7881ed77e77f4ffa039bd872.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1292",
+    "image": "data\\roboflow_dataset\\test\\crushed_plastic_bottle43_jpg.rf.d6d27702a9c0b8285dbe499f11fb7ae3.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [14, 224, 625, 410]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly, there is a bottle of water in the foreground"
+      }
+    ]
+  },
+  {
+    "id": "sample_131",
+    "image": "data\\roboflow_dataset\\test\\AnyConv-com__20230612_071824556_iOS_jpg.rf.c60f9a20b56e80c2c28d9fb487fa83fb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_938",
+    "image": "data\\roboflow_dataset\\test\\00975_jpg.rf.bbdb7857695ca61858fda679ea1ac8ef.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_229",
+    "image": "data\\roboflow_dataset\\valid\\320_png.rf.ef9b68076031879ed054ed3a5351c6e2.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [242, 45, 316, 347]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly lit by the light of a window"
+      }
+    ]
+  },
+  {
+    "id": "sample_1328",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153141_jpg.rf.3e9b8142279b49078e7bf15d26af02bc.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2804",
+    "image": "data\\roboflow_dataset\\valid\\bd1b17c4-R_3962_jpg.rf.7e1e467f8c3f51e5e12d9d4ddedd93db.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 3 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_899",
+    "image": "data\\roboflow_dataset\\valid\\naver_0195_jpg.rf.a00bc2df88b41b9a1346c43cd6e99988.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2281",
+    "image": "data\\roboflow_dataset\\valid\\20221002_152246_jpg.rf.2f6410adeaf14c8d3c106762a4a1cd27.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2818",
+    "image": "data\\roboflow_dataset\\valid\\184_jpg.rf.c18cdfa47b97c28dd2da3b0ab0b38ef6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2621",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable691_jpg.rf.8b62733686605d4db25b7c1136248562.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on.ly, there is a pear hanging from a tree branch Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1105",
+    "image": "data\\roboflow_dataset\\valid\\vina-35-_jpg.rf.b40a979a973c9266dbf0a9b3479586e4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1554",
+    "image": "data\\roboflow_dataset\\test\\paper108_jpg.rf.ee951ca17369894676faf862bf1cae0d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1893",
+    "image": "data\\roboflow_dataset\\test\\black_board1_284_jpg.rf.8e2075d8003b8728dca81243e116b206.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 plastic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_669",
+    "image": "data\\roboflow_dataset\\valid\\cans2-63-_jpeg.rf.1ff325ce26aedc6f8fe4389f5fafbe4a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 4 metal objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1002",
+    "image": "data\\roboflow_dataset\\valid\\85524589-AluCan366_jpg.rf.2cfd6160ae7a792ccf9d63db0846615d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2187",
+    "image": "data\\roboflow_dataset\\valid\\6304a2346f3976304a2346f39c_frame28_jpg.rf.09b2e846024f28e5b98a0fa0f7d35a32.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_700",
+    "image": "data\\roboflow_dataset\\valid\\cans2-34-_jpg.rf.09b9548fd2cd64233accef0671c82c07.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2600",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1113_jpg.rf.1d12a832ca10ad1820a70ff1b0f3b596.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2495",
+    "image": "data\\roboflow_dataset\\test\\metal79_jpg.rf.45df1cafdea897758c451070d6f6d975.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a metal. a metal in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_292",
+    "image": "data\\roboflow_dataset\\valid\\62ab2cba6d6fa62ab2cba6d701_frame5_jpg.rf.2cd071dbd3ccdf87cd6c47aaf3071abb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2654",
+    "image": "data\\roboflow_dataset\\valid\\glass141_jpg.rf.9cc928a51eb4e0cc666eee932c8885c5.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [0, 0, 407, 637]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2799",
+    "image": "data\\roboflow_dataset\\test\\cans2-18-_jpg.rf.155bc57fd579604cb4ebcfa58a974d71.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2874",
+    "image": "data\\roboflow_dataset\\valid\\glass1010_jpg.rf.70bb19da9ae4625ce00c7a8b46014421.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [267, 111, 598, 639]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_1093",
+    "image": "data\\roboflow_dataset\\test\\received_589739943291219_jpeg.rf.d34f235cd0f9760d797d7bbb0a4ff20a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2745",
+    "image": "data\\roboflow_dataset\\valid\\42_jpg.rf.ab75f9575383d115ca4b8eba8697018e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a bottle of beer on the table next to the glass Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a glass of beer and a bottle on the table next to it Here is a glass. a glass in this image. describe..."
+      }
+    ]
+  },
+  {
+    "id": "sample_858",
+    "image": "data\\roboflow_dataset\\valid\\62a3371f42f9562a3371f42f9c_frame80_jpg.rf.9c94be8bca219791d4439f18f0eceaa7.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1455",
+    "image": "data\\roboflow_dataset\\valid\\glass488_jpg.rf.1db5e836de9590c51c4268cb0f185eb9.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [142, 83, 477, 482]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_1516",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-197-_jpg.rf.8911e8beea40ec7633a8ca1bbdb705b5.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [117, 5, 521, 624]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_666",
+    "image": "data\\roboflow_dataset\\valid\\63175eb17be1e63175eb17be24_frame22_jpg.rf.063d033159702dc45b23b9906b7429ed.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [0, 52, 480, 640]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.wwwwwwww"
+      }
+    ]
+  },
+  {
+    "id": "sample_1494",
+    "image": "data\\roboflow_dataset\\valid\\laciate-36-_jpg.rf.bd28fe9b267c07ee7d26bd46c533e43c.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2603",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1113_jpg.rf.1d12a832ca10ad1820a70ff1b0f3b596.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1857",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153208_jpg.rf.5c382440cdeaaebcf2270fc435837f0d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2940",
+    "image": "data\\roboflow_dataset\\valid\\metal60_jpg.rf.44a0f08f0daac4e632dc29953c3a3e9a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2934",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1014_jpg.rf.c9743f377e56f743f7473f6a85465e65.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any organic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 8 organic objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_413",
+    "image": "data\\roboflow_dataset\\test\\th_true-80-_jpg.rf.ff49350b53a846131a16c1975f79f376.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_953",
+    "image": "data\\roboflow_dataset\\test\\IMG_3938_JPG_jpg.rf.3baa6d1e3704114f7f28b19906a21741.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_326",
+    "image": "data\\roboflow_dataset\\test\\kh-123-_jpg.rf.cd29856cdbe17cff0f58c7fc3aca1b57.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [47, 110, 323, 580]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.whiter, almond milk, and blueberry milk"
+      }
+    ]
+  },
+  {
+    "id": "sample_1185",
+    "image": "data\\roboflow_dataset\\valid\\g1_jpg.rf.f060f9fab540ce70797194edd93ca1c3.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. the bottle of heineken"
+      }
+    ]
+  },
+  {
+    "id": "sample_933",
+    "image": "data\\roboflow_dataset\\valid\\aac826da-AluCan790_jpg.rf.f597ecd8c5cb899ba462c08cfbeec0cb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2708",
+    "image": "data\\roboflow_dataset\\valid\\03566c06-AluCan853_jpg.rf.523fb0d9c89294dc3cf312fdb80a47b6.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_187",
+    "image": "data\\roboflow_dataset\\valid\\827_p5_jpg.rf.a2213e45b3192de86c648f368b8c6b08.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_284",
+    "image": "data\\roboflow_dataset\\valid\\plastic436_jpg.rf.1fa074e87703d6a30e07478d6dcd849b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2885",
+    "image": "data\\roboflow_dataset\\valid\\deacf492-R_4109_jpg.rf.3a9ecd2ea9f92b25c747e8f0e0a72577.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_787",
+    "image": "data\\roboflow_dataset\\test\\juice-151-_jpg.rf.01d2fc0349bb41e492c6c49a0b8850a1.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2364",
+    "image": "data\\roboflow_dataset\\valid\\0002_jpg.rf.e1efb9f0acafe8b56af461e4a5a64b38.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1481",
+    "image": "data\\roboflow_dataset\\valid\\276e7fe9-R_2086_jpg.rf.124c76d29e82d32f12b3178ec615287e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 2 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2533",
+    "image": "data\\roboflow_dataset\\valid\\0139441a-AluCan98_jpg.rf.f4602539a3d7f70f8485d902fd3e8f68.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2574",
+    "image": "data\\roboflow_dataset\\valid\\42f68459-AluCan815_jpg.rf.b7b0a1fdff0d46125252b5aa9f6cb787.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1200",
+    "image": "data\\roboflow_dataset\\test\\trai_cay-32-_jpg.rf.0800f27376c98451bb102d5cd805258c.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2261",
+    "image": "data\\roboflow_dataset\\test\\00958_jpeg.rf.125ac0953b5a3319c915a2912ca528ac.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 2 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_322",
+    "image": "data\\roboflow_dataset\\test\\kh-123-_jpg.rf.cd29856cdbe17cff0f58c7fc3aca1b57.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 2 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1550",
+    "image": "data\\roboflow_dataset\\valid\\b011a79a-AluCan37_jpg.rf.3f85a7707d38d78588b0a91910f32227.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_511",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-155-_jpg.rf.f1481a79ab85d40be3f543d6b0db7dee.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [285, 251, 455, 497]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_2196",
+    "image": "data\\roboflow_dataset\\valid\\62a3371f42f9562a3371f42f9c_frame90_jpg.rf.0bd7c52fd42387b39292fd080b88fca1.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1881",
+    "image": "data\\roboflow_dataset\\valid\\maxresdefault_2_jpg.rf.a9c2765f877fa8cd6987537c6cf633ae.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_177",
+    "image": "data\\roboflow_dataset\\valid\\cardboard1314_jpg.rf.5a2d426bc3bd3fa10586fb11117dabd8.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1083",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-100-_jpg.rf.712562af3a36d786b23cd19d16111b5d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2472",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-36-_jpg.rf.c4c5b3358bf9ac64064c4b1aa4a11701.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there are 8 paper objects."
+      }
+    ]
+  },
+  {
+    "id": "sample_1408",
+    "image": "data\\roboflow_dataset\\valid\\th_true-71-_jpg.rf.5f34d4c9fc11934894c89f1165071983.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1470",
+    "image": "data\\roboflow_dataset\\valid\\Plastico_196_jpg.rf.43ba9bc616d2b546f9d8a5d2581cb68a.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 plastic object."
+      }
+    ]
+  },
+  {
+    "id": "sample_396",
+    "image": "data\\roboflow_dataset\\valid\\black_board1_138_jpg.rf.1bd94f96a92f041143e19877fd256b55.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1556",
+    "image": "data\\roboflow_dataset\\test\\paper108_jpg.rf.ee951ca17369894676faf862bf1cae0d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_379",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable697_jpg.rf.9ef845ad54c4b94ffbf8427b766c8228.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [216, 282, 508, 594]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.xlwwwwwwwwwwwwwwwwwwwwwwwwwww"
+      }
+    ]
+  },
+  {
+    "id": "sample_418",
+    "image": "data\\roboflow_dataset\\valid\\plastic33_jpg.rf.189b0551e3bffd91f7c67d00cc4bde07.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1378",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1674_jpg.rf.f144d18c88f942daf34b5a40bfd69367.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_881",
+    "image": "data\\roboflow_dataset\\test\\th_true-81-_jpg.rf.c60ca5a04d2a79d4f434a9d3e0165c02.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_636",
+    "image": "data\\roboflow_dataset\\test\\paper1152_jpg.rf.af113aedeaac3274b18579354f20a29b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [79, 167, 413, 573]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly, there is a woman holding a paper cup of coffee in her hand"
+      }
+    ]
+  },
+  {
+    "id": "sample_1138",
+    "image": "data\\roboflow_dataset\\test\\7686ae45-AluCan638_jpg.rf.d2bd7a09ab29f8d095158731018e13bf.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1393",
+    "image": "data\\roboflow_dataset\\test\\bottle_14_jpg.rf.7e9f48e6d5ca90c825b7cd6b7221b612.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_1731",
+    "image": "data\\roboflow_dataset\\valid\\76f9b2c4-AluCan718_jpg.rf.fa514fda41b2971a62c8b413b488dc36.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2859",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153255_jpg.rf.17143a69c67be5bbb445e2454a7c2168.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_653",
+    "image": "data\\roboflow_dataset\\test\\naver_0271_jpg.rf.9d111901f91c2c36aa818a3f99f46257.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_26",
+    "image": "data\\roboflow_dataset\\valid\\bungkus-rokok-156-_jpg.rf.65a8582af34f7bf31e2271b2d9fa0b08.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [199, 257, 467, 531]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  },
+  {
+    "id": "sample_1139",
+    "image": "data\\roboflow_dataset\\test\\7686ae45-AluCan638_jpg.rf.d2bd7a09ab29f8d095158731018e13bf.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2413",
+    "image": "data\\roboflow_dataset\\test\\82b1a948-AluCan128_jpg.rf.747a593429323a16893cb4a253e32b9e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. checkered fabric"
+      }
+    ]
+  },
+  {
+    "id": "sample_1839",
+    "image": "data\\roboflow_dataset\\test\\00977_jpeg.rf.702717ba91ace8e37a1f68f8aad1b507.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_902",
+    "image": "data\\roboflow_dataset\\valid\\80_png.rf.c1ca9bd82879dd218fffd6a11b40f35e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_1718",
+    "image": "data\\roboflow_dataset\\test\\91136691-R_1650_jpg.rf.b5e5fba17c369d9eec0b86a57ee604d4.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2232",
+    "image": "data\\roboflow_dataset\\test\\glass361_jpg.rf.acf7ee28165485a9593d789f31bc8670.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2872",
+    "image": "data\\roboflow_dataset\\valid\\glass1010_jpg.rf.70bb19da9ae4625ce00c7a8b46014421.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2661",
+    "image": "data\\roboflow_dataset\\valid\\cardboard1329_jpg.rf.45d3e5cdd7cbb2c0d53ffe8f1624d8cd.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a paper at [0, 266, 266, 638]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a paper. a paper in this image. describe where it is located and what surface or environment it is on., with a chair and a table in the middle of the room"
+      }
+    ]
+  },
+  {
+    "id": "sample_2932",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1014_jpg.rf.c9743f377e56f743f7473f6a85465e65.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly oranges, bananas, apples, and apples Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly oranges, apples, pears, apples, bananas, and oranges Here is a organic. a organic in this image. describe where it is located..."
+      }
+    ]
+  },
+  {
+    "id": "sample_814",
+    "image": "data\\roboflow_dataset\\valid\\IMG_1697_Original_jpeg.rf.89d55515e8e5f216229bedc0a2c7ca33.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any metal in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no metal in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2298",
+    "image": "data\\roboflow_dataset\\valid\\cardboard1284_jpg.rf.9e39bda34eae3a0d8ceef34fa6f4b124.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any paper in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 paper object."
+      }
+    ]
+  },
+  {
+    "id": "sample_108",
+    "image": "data\\roboflow_dataset\\valid\\black_board1_134_jpg.rf.5f6216439c4b667e68413bf655d31625.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [269, 399, 361, 595]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2465",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1248_jpg.rf.8b2ac88e10f5fd0d138fa9adf4fa7abe.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2069",
+    "image": "data\\roboflow_dataset\\test\\62a3371f42f9562a3371f42f9c_frame40_jpg.rf.4de44b6c2eb0ab57122702e5fd7c100d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 4 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_952",
+    "image": "data\\roboflow_dataset\\test\\IMG_3938_JPG_jpg.rf.3baa6d1e3704114f7f28b19906a21741.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_895",
+    "image": "data\\roboflow_dataset\\valid\\naver_0195_jpg.rf.a00bc2df88b41b9a1346c43cd6e99988.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+      }
+    ]
+  },
+  {
+    "id": "sample_383",
+    "image": "data\\roboflow_dataset\\valid\\cropped_pb_274_jpg.rf.6287885e6d40088fe64fb63b7d4d4268.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_122",
+    "image": "data\\roboflow_dataset\\valid\\0225092457_jpg.rf.b318c2136a1d45a07320158a9ee6eb56.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_130",
+    "image": "data\\roboflow_dataset\\test\\AnyConv-com__20230612_071824556_iOS_jpg.rf.c60f9a20b56e80c2c28d9fb487fa83fb.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1728",
+    "image": "data\\roboflow_dataset\\valid\\76f9b2c4-AluCan718_jpg.rf.fa514fda41b2971a62c8b413b488dc36.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_2418",
+    "image": "data\\roboflow_dataset\\test\\82b1a948-AluCan128_jpg.rf.747a593429323a16893cb4a253e32b9e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [30, 213, 269, 327]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on. checkered fabric"
+      }
+    ]
+  },
+  {
+    "id": "sample_356",
+    "image": "data\\roboflow_dataset\\valid\\20221002_153241_jpg.rf.736309cd2e60485d4050ab4b1f2b9a9e.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, there is 1 glass object."
+      }
+    ]
+  },
+  {
+    "id": "sample_2233",
+    "image": "data\\roboflow_dataset\\test\\glass361_jpg.rf.acf7ee28165485a9593d789f31bc8670.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a glass at [153, 108, 535, 639]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_2771",
+    "image": "data\\roboflow_dataset\\valid\\naver_0300_jpg.rf.f9fea9b9d1c6501671400d29fc8b39ec.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe the garbage objects in this image."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly, there is a bottle of orange juice, a glass, a bottle of milk, and a glass of milk, and a plate, and a plate of strawberries, Here is a glass. a glass in this image. describe where it is located and what surface or environment it is on.ly Here is a glass. a glass in this image...."
+      }
+    ]
+  },
+  {
+    "id": "sample_419",
+    "image": "data\\roboflow_dataset\\valid\\plastic33_jpg.rf.189b0551e3bffd91f7c67d00cc4bde07.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_571",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable722_jpg.rf.a296e876c113913bc47325037cd2cc9b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any glass in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no glass in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_914",
+    "image": "data\\roboflow_dataset\\valid\\plastic341_jpg.rf.ad0ed06ffbd5c6cf3caaf6945be18cf8.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a plastic at [181, 0, 639, 492]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a plastic. a plastic in this image. describe where it is located and what surface or environment it is on.ly, there is a red cap on the bottom of the bottle"
+      }
+    ]
+  },
+  {
+    "id": "sample_1003",
+    "image": "data\\roboflow_dataset\\valid\\85524589-AluCan366_jpg.rf.2cfd6160ae7a792ccf9d63db0846615d.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nIs there any plastic in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "No, there is no plastic in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_1126",
+    "image": "data\\roboflow_dataset\\valid\\62c1715b8961562c1715b8961a_frame8_jpg.rf.bb946d18198eb344e2771b20fd771db0.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nHow many objects are there in this image?"
+      },
+      {
+        "from": "gpt",
+        "value": "There are 1 objects in this image."
+      }
+    ]
+  },
+  {
+    "id": "sample_102",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1743_jpg.rf.4a629d42cbde807c5951842694ec859b.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [338, 190, 580, 635]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on."
+      }
+    ]
+  },
+  {
+    "id": "sample_456",
+    "image": "data\\roboflow_dataset\\valid\\biodegradable1232_jpg.rf.7ea20349793293d09c9375370bb120cd.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nThere is a organic at [306, 359, 410, 491]. Describe it."
+      },
+      {
+        "from": "gpt",
+        "value": "Here is a organic. a organic in this image. describe where it is located and what surface or environment it is on.ly"
+      }
+    ]
+  }
+]

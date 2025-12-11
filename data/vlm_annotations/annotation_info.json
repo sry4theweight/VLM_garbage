@@ -1,0 +1,14 @@
+{
+  "dataset_path": "data\\roboflow_dataset",
+  "output_dir": "data\\vlm_annotations",
+  "output_file": "data\\vlm_annotations\\annotations.json",
+  "total_images": 500,
+  "model_config": {
+    "yolo_model": "models/yolo/yolov8x/best.pt",
+    "detr_model": "models/rt-detr/rt-detr-101/m",
+    "detr_processor": "models/rt-detr/rt-detr-101/p",
+    "llm_model": "Salesforce/blip-image-captioning-large",
+    "conf_threshold": 0.7,
+    "max_images": 500
+  }
+}

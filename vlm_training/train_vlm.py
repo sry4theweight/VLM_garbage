@@ -15,25 +15,80 @@ from transformers import (
     TrainingArguments,
     Trainer
 )
-from peft import LoraConfig, get_peft_model, TaskType
+from peft import LoraConfig, get_peft_model
 import os
+
+
+def check_gpu():
+    """Проверка доступности и информации о GPU"""
+    print("=" * 60)
+    print("ПРОВЕРКА GPU")
+    print("=" * 60)
+    
+    if torch.cuda.is_available():
+        gpu_count = torch.cuda.device_count()
+        print(f"✅ CUDA доступна!")
+        print(f"   Количество GPU: {gpu_count}")
+        
+        for i in range(gpu_count):
+            gpu_name = torch.cuda.get_device_name(i)
+            gpu_memory = torch.cuda.get_device_properties(i).total_memory / (1024**3)  # GB
+            gpu_memory_allocated = torch.cuda.memory_allocated(i) / (1024**3)  # GB
+            gpu_memory_free = gpu_memory - gpu_memory_allocated
+            
+            print(f"\n   GPU {i}: {gpu_name}")
+            print(f"   - Общая память: {gpu_memory:.2f} GB")
+            print(f"   - Свободная память: {gpu_memory_free:.2f} GB")
+            print(f"   - Compute Capability: {torch.cuda.get_device_properties(i).major}.{torch.cuda.get_device_properties(i).minor}")
+        
+        # Текущий GPU
+        current_device = torch.cuda.current_device()
+        print(f"\n   Текущий GPU: {current_device} ({torch.cuda.get_device_name(current_device)})")
+        
+        # Версии
+        print(f"\n   PyTorch версия: {torch.__version__}")
+        print(f"   CUDA версия: {torch.version.cuda}")
+        if hasattr(torch.backends, 'cudnn'):
+            print(f"   cuDNN версия: {torch.backends.cudnn.version()}")
+            print(f"   cuDNN включен: {torch.backends.cudnn.enabled}")
+        
+        print("=" * 60)
+        return True
+    else:
+        print("❌ CUDA НЕ доступна!")
+        print("   Обучение будет происходить на CPU (очень медленно)")
+        print(f"\n   PyTorch версия: {torch.__version__}")
+        
+        # Проверка причины
+        if not torch.cuda.is_available():
+            print("\n   Возможные причины:")
+            print("   1. Не установлены NVIDIA драйверы")
+            print("   2. PyTorch установлен без поддержки CUDA")
+            print("   3. Нет совместимой NVIDIA GPU")
+            print("\n   Для установки PyTorch с CUDA через Conda:")
+            print("   conda install pytorch torchvision pytorch-cuda=11.8 -c pytorch -c nvidia")
+        
+        print("=" * 60)
+        return False
 
 
 class LLaVADataset(Dataset):
     """Датасет для обучения LLaVA"""
     
-    def __init__(self, data_file: str, processor, image_dir: str = None):
+    def __init__(self, data_file: str, processor, image_dir: str = None, max_length: int = 2048):
         """
         Args:
             data_file: путь к JSON файлу с данными в формате LLaVA
             processor: процессор модели
             image_dir: базовый путь к директории с изображениями (если пути в JSON относительные)
+            max_length: максимальная длина последовательности
         """
         with open(data_file, 'r', encoding='utf-8') as f:
             self.data = json.load(f)
         
         self.processor = processor
         self.image_dir = Path(image_dir) if image_dir else None
+        self.max_length = max_length
     
     def __len__(self):
         return len(self.data)
@@ -42,7 +97,9 @@ class LLaVADataset(Dataset):
         item = self.data[idx]
         image_path = item['image']
         
-        # Обработка пути к изображению
+        # Обработка пути к изображению (Windows и Unix)
+        image_path = image_path.replace('\\', '/')
+        
         if self.image_dir and not Path(image_path).is_absolute():
             image_path = self.image_dir / image_path
         else:
@@ -51,49 +108,54 @@ class LLaVADataset(Dataset):
         # Загрузка изображения
         image = Image.open(image_path).convert('RGB')
         
-        # Формирование текста разговора
+        # Формирование текста в формате LLaVA
+        # Формат: "USER: <image>\n{question}\nASSISTANT: {answer}"
         conversations = item['conversations']
-        full_text = ""
-        for conv in conversations:
-            role = "Human" if conv['from'] == 'human' else "Assistant"
-            full_text += f"{role}: {conv['value']}\n"
         
-        # Обработка с процессором
+        # Предполагаем структуру: [human, gpt] пары
+        prompt_parts = []
+        for i, conv in enumerate(conversations):
+            if conv['from'] == 'human':
+                prompt_parts.append(f"USER: {conv['value']}")
+            else:
+                prompt_parts.append(f"ASSISTANT: {conv['value']}")
+        
+        full_prompt = "\n".join(prompt_parts)
+        
+        # Обработка с процессором (без truncation чтобы не потерять <image> токен)
         inputs = self.processor(
-            text=full_text,
+            text=full_prompt,
             images=image,
             return_tensors="pt",
-            padding=True,
-            truncation=True,
-            max_length=512
+            padding="max_length",
+            max_length=self.max_length
         )
         
         # Удаляем batch dimension для Dataset
         inputs = {k: v.squeeze(0) for k, v in inputs.items()}
+        
+        # Ручная обрезка если нужно (сохраняя первые токены с <image>)
+        if inputs['input_ids'].shape[0] > self.max_length:
+            inputs['input_ids'] = inputs['input_ids'][:self.max_length]
+            inputs['attention_mask'] = inputs['attention_mask'][:self.max_length]
+        
+        # Создаём labels (копия input_ids, но -100 для padding)
+        labels = inputs['input_ids'].clone()
+        if self.processor.tokenizer.pad_token_id is not None:
+            labels[labels == self.processor.tokenizer.pad_token_id] = -100
+        inputs['labels'] = labels
         
         return inputs
 
 
 def collate_fn(batch):
     """Функция для батчинга"""
-    images = [item['pixel_values'] for item in batch]
-    input_ids = [item['input_ids'] for item in batch]
-    attention_mask = [item['attention_mask'] for item in batch]
-    
-    # Паддинг
-    max_len = max(len(ids) for ids in input_ids)
-    padded_input_ids = []
-    padded_attention_mask = []
-    
-    for ids, mask in zip(input_ids, attention_mask):
-        pad_len = max_len - len(ids)
-        padded_input_ids.append(torch.cat([ids, torch.zeros(pad_len, dtype=ids.dtype)]))
-        padded_attention_mask.append(torch.cat([mask, torch.zeros(pad_len, dtype=mask.dtype)]))
-    
+    # Все примеры уже имеют одинаковую длину благодаря padding в __getitem__
     return {
-        'pixel_values': torch.stack(images),
-        'input_ids': torch.stack(padded_input_ids),
-        'attention_mask': torch.stack(padded_attention_mask)
+        'pixel_values': torch.stack([item['pixel_values'] for item in batch]),
+        'input_ids': torch.stack([item['input_ids'] for item in batch]),
+        'attention_mask': torch.stack([item['attention_mask'] for item in batch]),
+        'labels': torch.stack([item['labels'] for item in batch])
     }
 
 
@@ -130,15 +192,24 @@ def train_vlm(
         save_steps: частота сохранения
         logging_steps: частота логирования
     """
+    # Проверка GPU перед обучением
+    has_gpu = check_gpu()
+    
+    if not has_gpu:
+        user_input = input("\n⚠️  GPU не обнаружен. Продолжить обучение на CPU? (y/n): ")
+        if user_input.lower() != 'y':
+            print("Обучение отменено.")
+            return
+    
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Using device: {device}")
+    print(f"\nИспользуемое устройство: {device}")
     
     # Загрузка модели и процессора
     print(f"Loading model: {base_model}...")
-    processor = AutoProcessor.from_pretrained(base_model)
+    processor = AutoProcessor.from_pretrained(base_model, use_fast=True)
     model = LlavaForConditionalGeneration.from_pretrained(
         base_model,
-        torch_dtype=torch.float16 if device == "cuda" else torch.float32,
+        dtype=torch.float16 if device == "cuda" else torch.float32,
         device_map="auto" if device == "cuda" else None
     )
     
@@ -146,7 +217,6 @@ def train_vlm(
     if use_lora:
         print("Applying LoRA...")
         lora_config = LoraConfig(
-            task_type=TaskType.CONDITIONAL_GENERATION,
             r=lora_r,
             lora_alpha=lora_alpha,
             target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
@@ -173,7 +243,7 @@ def train_vlm(
         fp16=device == "cuda",
         logging_steps=logging_steps,
         save_steps=save_steps,
-        evaluation_strategy="steps" if val_dataset else "no",
+        eval_strategy="steps" if val_dataset else "no",
         eval_steps=save_steps if val_dataset else None,
         save_total_limit=3,
         load_best_model_at_end=True if val_dataset else False,

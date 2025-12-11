@@ -21,17 +21,21 @@ git add . && git commit -m "Update VLM pipeline" && git push origin main
 ### Скачивание и разметка датасета Roboflow
 
 ```bash
-# 1. Скачать датасет
+# 1. Скачать датасет (по умолчанию в формате COCO)
+python download_roboflow_dataset.py
+
+# Или с явным указанием параметров:
 python download_roboflow_dataset.py \
-    --api_key "your-api-key" \
+    --api_key "IYwUdRPmNzuSjy8A6cOr" \
     --workspace "kuivashev" \
     --project "complete-wxatb" \
     --version 1 \
-    --output_dir "data/roboflow_dataset"
+    --output_dir "data/roboflow_dataset" \
+    --format "coco"
 
 # 2. Разметить датасет
 python annotate_roboflow_dataset.py \
-    --roboflow_dataset_dir "data/roboflow_dataset/my-normal-dataset-1" \
+    --roboflow_dataset_dir "data/roboflow_dataset" \
     --output_dir "data/vlm_annotations"
 ```
 
@@ -68,14 +72,37 @@ python annotate_roboflow_dataset.py \
 
 ## Установка
 
-1. Установите зависимости:
+### Вариант 1: Через Conda (рекомендуется)
+
 ```bash
-pip install -r requirements_vlm.txt
+# Создание окружения из environment.yml
+conda env create -f environment.yml
+
+# Активация окружения
+conda activate vlm_garbage
+
+# Проверка GPU
+python check_gpu.py
 ```
 
-2. Убедитесь, что у вас есть модели детекции в директории `models/`:
-   - YOLO модели: `models/yolo/yolov8x/best.pt`
-   - RT-DETR модели: `models/rt-detr/rt-detr-101/m/` и `models/rt-detr/rt-detr-101/p/`
+### Вариант 2: Через pip
+
+```bash
+# Установка PyTorch с CUDA (выберите версию CUDA)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+# Установка остальных зависимостей
+pip install -r requirements_vlm.txt
+
+# Проверка GPU
+python check_gpu.py
+```
+
+### Модели детекции
+
+Убедитесь, что у вас есть модели детекции в директории `models/`:
+- YOLO модели: `models/yolo/yolov8x/best.pt`
+- RT-DETR модели: `models/rt-detr/rt-detr-101/m/` и `models/rt-detr/rt-detr-101/p/`
 
 ## Использование
 
@@ -84,15 +111,17 @@ pip install -r requirements_vlm.txt
 Для скачивания датасета из Roboflow:
 
 ```bash
-# Установите API ключ (можно через переменную окружения)
-export ROBOFLOW_API_KEY="your-api-key"
+# Простой вариант (API ключ уже прописан в скрипте):
+python download_roboflow_dataset.py
 
-# Скачайте датасет
+# Или с явным указанием параметров:
 python download_roboflow_dataset.py \
+    --api_key "IYwUdRPmNzuSjy8A6cOr" \
     --workspace "kuivashev" \
-    --project "my-normal-dataset" \
+    --project "complete-wxatb" \
     --version 1 \
-    --output_dir "data/roboflow_dataset"
+    --output_dir "data/roboflow_dataset" \
+    --format "coco"
 ```
 
 Или используйте полный пайплайн (см. ниже).
@@ -103,7 +132,7 @@ python download_roboflow_dataset.py \
 
 ```bash
 python annotate_roboflow_dataset.py \
-    --roboflow_dataset_dir "data/roboflow_dataset/my-normal-dataset-1" \
+    --roboflow_dataset_dir "data/roboflow_dataset" \
     --output_dir "data/vlm_annotations" \
     --yolo_model "models/yolo/yolov8x/best.pt" \
     --detr_model "models/rt-detr/rt-detr-101/m" \

@@ -1,0 +1,26 @@
+name: vlm_garbage
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch>=2.0.0
+  - torchvision>=0.15.0
+  - pytorch-cuda=11.8
+  - pip
+  - pip:
+    - transformers>=4.35.0
+    - pillow>=9.0.0
+    - numpy>=1.24.0
+    - opencv-python>=4.8.0
+    - ultralytics>=8.0.0
+    - supervision>=0.16.0
+    - tqdm>=4.65.0
+    - peft>=0.6.0
+    - accelerate>=0.24.0
+    - datasets>=2.14.0
+    - tensorboard>=2.14.0
+    - roboflow>=1.1.0
+

@@ -11,4 +11,5 @@ peft>=0.6.0
 accelerate>=0.24.0
 datasets>=2.14.0
 tensorboard>=2.14.0
+roboflow>=1.1.0
 

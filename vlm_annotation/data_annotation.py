@@ -5,6 +5,7 @@
 import os
 import json
 import argparse
+import random
 from pathlib import Path
 from typing import List, Dict, Any
 from PIL import Image
@@ -12,7 +13,7 @@ import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from tqdm import tqdm
 
-from ensemble_detector import EnsembleDetector
+from vlm_annotation.ensemble_detector import EnsembleDetector
 
 
 class VLMDataAnnotator:
@@ -34,7 +35,7 @@ class VLMDataAnnotator:
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         
         print(f"Loading LLM model: {llm_model_name}...")
-        self.llm_processor = BlipProcessor.from_pretrained(llm_model_name)
+        self.llm_processor = BlipProcessor.from_pretrained(llm_model_name, use_fast=True)
         self.llm_model = BlipForConditionalGeneration.from_pretrained(llm_model_name).to(self.device)
         self.llm_model.eval()
     
@@ -140,7 +141,7 @@ class VLMDataAnnotator:
                 })
         
         # Генерация вопросов о наличии конкретных классов
-        all_classes = ['glass', 'plastic', 'metal', 'paper', 'organic', 'garb-garbage']
+        all_classes = ['glass', 'plastic', 'metal', 'paper', 'organic']
         for class_name in all_classes:
             if class_name not in class_counts:
                 qa_pairs.append({
@@ -199,7 +200,8 @@ class VLMDataAnnotator:
         }
     
     def annotate_directory(self, images_dir: str, output_file: str, 
-                          image_extensions: List[str] = None):
+                          image_extensions: List[str] = None,
+                          max_images: int = None):
         """
         Разметка всех изображений в директории
         
@@ -207,6 +209,7 @@ class VLMDataAnnotator:
             images_dir: путь к директории с изображениями
             output_file: путь к выходному JSON файлу
             image_extensions: список расширений изображений (по умолчанию: ['.jpg', '.jpeg', '.png'])
+            max_images: максимальное количество изображений (None = все)
         """
         if image_extensions is None:
             image_extensions = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']
@@ -217,12 +220,55 @@ class VLMDataAnnotator:
             if f.suffix in image_extensions
         ]
         
-        print(f"Found {len(image_files)} images to annotate")
+        total_found = len(image_files)
+        
+        # Случайная выборка если указан max_images
+        if max_images is not None and max_images < len(image_files):
+            image_files = random.sample(image_files, max_images)
+            print(f"Found {total_found} images, randomly selected {max_images} for annotation")
+        else:
+            print(f"Found {len(image_files)} images to annotate")
         
         annotations = []
         for image_file in tqdm(image_files, desc="Annotating images"):
             try:
                 annotation = self.annotate_image(str(image_file))
+                annotations.append(annotation)
+            except Exception as e:
+                print(f"Error processing {image_file}: {e}")
+                continue
+        
+        # Сохранение в JSON
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(annotations, f, indent=2, ensure_ascii=False)
+        
+        print(f"Annotations saved to {output_file}")
+        print(f"Total annotated images: {len(annotations)}")
+    
+    def annotate_images(self, image_files: List[Path], output_file: str):
+        """
+        Разметка списка изображений
+        
+        Args:
+            image_files: список путей к изображениям
+            output_file: путь к выходному JSON файлу
+        """
+        print(f"Annotating {len(image_files)} images...")
+        
+        annotations = []
+        for image_file in tqdm(image_files, desc="Annotating images"):
+            try:
+                annotation = self.annotate_image(str(image_file))
+                # Фильтруем детекции с классом garb-garbage
+                annotation['detections'] = [
+                    det for det in annotation['detections']
+                    if det['label'] != 'garb-garbage'
+                ]
+                # Обновляем Q&A с учётом отфильтрованных детекций
+                annotation['qa_pairs'] = self.generate_qa_pairs(
+                    Image.open(str(image_file)).convert("RGB"),
+                    annotation['detections']
+                )
                 annotations.append(annotation)
             except Exception as e:
                 print(f"Error processing {image_file}: {e}")

@@ -17,7 +17,6 @@ MODEL_WEIGHTS = {
         "metal": 0.8705,
         "paper": 0.7299,
         "organic": 0.6151,
-        "garb-garbage": 0.0,
     },
     "RT-DETR-101": {
         "plastic": 0.8967,
@@ -25,9 +24,11 @@ MODEL_WEIGHTS = {
         "metal": 0.8705,
         "paper": 0.7299,
         "organic": 0.6151,
-        "garb-garbage": 0.0,
     }
 }
+
+# Классы для игнорирования
+IGNORED_CLASSES = {'garb-garbage'}
 
 CONFIDENCE_DELTA_THRESHOLD = 0.5
 
@@ -57,7 +58,7 @@ class EnsembleDetector:
         # Загрузка RT-DETR
         print(f"Loading RT-DETR model from {detr_model_path}...")
         self.detr_processor = RTDetrImageProcessor.from_pretrained(
-            detr_processor_path, local_files_only=True
+            detr_processor_path, local_files_only=True, use_fast=True
         )
         self.detr_model = RTDetrV2ForObjectDetection.from_pretrained(
             detr_model_path, local_files_only=True
@@ -236,5 +237,11 @@ class EnsembleDetector:
                     'confidence': float(self.calibrate_confidence(det['confidence'], "RT-DETR-101", det['label']))
                 })
         
-        return ensemble_detections
+        # Фильтрация игнорируемых классов (например, garb-garbage)
+        filtered_detections = [
+            det for det in ensemble_detections 
+            if det['label'] not in IGNORED_CLASSES
+        ]
+        
+        return filtered_detections
 

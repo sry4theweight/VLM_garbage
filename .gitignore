@@ -15,25 +15,17 @@ env/
 .vscode/
 .idea/
 
-# ML specific (Large files)
-*.pth
-*.pt
-*.h5
-*.pkl
-*.safetensors
-*.ckpt
-data/
-datasets/
-models/
-vlm_model/
-wandb/
+# Temporary files
 *.log
 logs/
+wandb/
 
-# VLM annotations (can be large)
-vlm_annotations/
-llava_*.json
-*_annotations.json
+# Large model outputs (обученные модели - генерируются)
+vlm_model/
+data/vlm_training/model/
+
+# Roboflow dataset (слишком большой, скачивается отдельно)
+data/roboflow_dataset/
 
 # Jupyter output
 *.ipynb_checkpoints
