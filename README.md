@@ -25,7 +25,7 @@ git add . && git commit -m "Update VLM pipeline" && git push origin main
 python download_roboflow_dataset.py \
     --api_key "your-api-key" \
     --workspace "kuivashev" \
-    --project "my-normal-dataset" \
+    --project "complete-wxatb" \
     --version 1 \
     --output_dir "data/roboflow_dataset"
 
