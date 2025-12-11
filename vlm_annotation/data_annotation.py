@@ -242,7 +242,7 @@ def main():
         "--images_dir",
         type=str,
         required=True,
-        help="Путь к директории с изображениями"
+        help="Путь к директории с изображениями (или путь к директории датасета Roboflow, например data/roboflow_dataset/my-normal-dataset-1/train)"
     )
     parser.add_argument(
         "--output_file",

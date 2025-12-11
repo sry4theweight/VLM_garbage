@@ -2,6 +2,41 @@
 
 Проект включает систему детекции объектов мусора с использованием ансамбля моделей (YOLO + RT-DETR) и Visual Language Model (VLM) для описания объектов и ответов на вопросы по изображениям.
 
+## Быстрый старт
+
+### Обновление проекта из Git
+
+```bash
+git pull origin main
+```
+
+### Обновление проекта в Git
+
+```bash
+git add . && git commit -m "Update VLM pipeline" && git push origin main
+```
+
+Подробные инструкции по Git: см. [git_commands.md](git_commands.md)
+
+### Скачивание и разметка датасета Roboflow
+
+```bash
+# 1. Скачать датасет
+python download_roboflow_dataset.py \
+    --api_key "your-api-key" \
+    --workspace "kuivashev" \
+    --project "my-normal-dataset" \
+    --version 1 \
+    --output_dir "data/roboflow_dataset"
+
+# 2. Разметить датасет
+python annotate_roboflow_dataset.py \
+    --roboflow_dataset_dir "data/roboflow_dataset/my-normal-dataset-1" \
+    --output_dir "data/vlm_annotations"
+```
+
+Или используйте полный пайплайн: `./run_full_pipeline.sh`
+
 ## Структура проекта
 
 ```
@@ -23,7 +58,11 @@
 │   └── train_vlm.py            # Fine-tuning VLM модели
 ├── vlm_inference/              # Инференс обученной VLM
 │   └── vlm_inference.py        # Скрипт для использования VLM
+├── download_roboflow_dataset.py # Скачивание датасета Roboflow
+├── annotate_roboflow_dataset.py # Разметка датасета Roboflow
 ├── server.ipynb                # Сервер для обработки видео
+├── run_full_pipeline.sh        # Полный пайплайн (скачивание -> разметка -> обучение)
+├── git_commands.md             # Инструкции по работе с Git
 └── training_and_testing_steps/ # Обучение и тестирование моделей детекции
 ```
 
@@ -40,7 +79,38 @@ pip install -r requirements_vlm.txt
 
 ## Использование
 
+### 0. Скачивание датасета Roboflow
+
+Для скачивания датасета из Roboflow:
+
+```bash
+# Установите API ключ (можно через переменную окружения)
+export ROBOFLOW_API_KEY="your-api-key"
+
+# Скачайте датасет
+python download_roboflow_dataset.py \
+    --workspace "kuivashev" \
+    --project "my-normal-dataset" \
+    --version 1 \
+    --output_dir "data/roboflow_dataset"
+```
+
+Или используйте полный пайплайн (см. ниже).
+
 ### 1. Разметка данных для обучения VLM
+
+#### Для датасета Roboflow (рекомендуется):
+
+```bash
+python annotate_roboflow_dataset.py \
+    --roboflow_dataset_dir "data/roboflow_dataset/my-normal-dataset-1" \
+    --output_dir "data/vlm_annotations" \
+    --yolo_model "models/yolo/yolov8x/best.pt" \
+    --detr_model "models/rt-detr/rt-detr-101/m" \
+    --detr_processor "models/rt-detr/rt-detr-101/p"
+```
+
+#### Для произвольных изображений:
 
 Разметка изображений с использованием ансамбля моделей детекции и LLM:
 
@@ -255,6 +325,43 @@ answer = vlm.answer_question(
 - GPU: рекомендуется (но можно на CPU)
 - RAM: минимум 8GB
 - VRAM: зависит от размера модели
+
+## Полный пайплайн
+
+Используйте скрипт `run_full_pipeline.sh` для автоматического выполнения всех шагов:
+
+1. Скачивание датасета Roboflow
+2. Разметка всех сплитов (train/valid/test)
+3. Конвертация в формат LLaVA
+4. Обучение VLM модели
+
+```bash
+# Отредактируйте скрипт, указав правильные пути к моделям
+chmod +x run_full_pipeline.sh
+./run_full_pipeline.sh
+```
+
+## Работа с Git
+
+### Обновление проекта в Git (после изменений):
+
+```bash
+# Быстрый вариант
+git add . && git commit -m "Update VLM pipeline" && git push origin main
+
+# Или по шагам
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+### Обновление проекта из Git:
+
+```bash
+git pull origin main
+```
+
+Подробные инструкции: см. [git_commands.md](git_commands.md)
 
 ## Примечания
 

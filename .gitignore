@@ -20,6 +20,20 @@ env/
 *.pt
 *.h5
 *.pkl
+*.safetensors
+*.ckpt
 data/
 datasets/
 models/
+vlm_model/
+wandb/
+*.log
+logs/
+
+# VLM annotations (can be large)
+vlm_annotations/
+llava_*.json
+*_annotations.json
+
+# Jupyter output
+*.ipynb_checkpoints
