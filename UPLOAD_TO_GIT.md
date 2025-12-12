@@ -37,17 +37,19 @@ git push origin main
 ```python
 # Клонировать репозиторий
 !git lfs install
-!git clone https://github.com/YOUR_USERNAME/VLM_garbage.git
+!git clone https://github.com/sry4theweight/VLM_garbage.git
 %cd VLM_garbage
 
 # Установить зависимости
-!pip install transformers peft accelerate ultralytics supervision tqdm pillow
+!pip install -q transformers peft accelerate ultralytics supervision tqdm pillow roboflow
 
-# Скачать датасет Roboflow (если нужно)
-!pip install roboflow
+# Проверить GPU
+!python check_gpu.py
+
+# Скачать датасет Roboflow (если нужно для аннотации)
 !python download_roboflow_dataset.py
 
-# Запустить обучение
+# Запустить обучение (данные уже в репозитории)
 !python train_pipeline.py --batch_size 2
 ```
 
