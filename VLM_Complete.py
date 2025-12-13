@@ -105,8 +105,8 @@ class CompleteVLM:
             garbage_str = "There is " + ", ".join(items)
         
         # Формируем полное описание
-        if scene_name != 'unknown' and scene_conf > 0.5:
-            # Добавляем предлог в зависимости от сцены
+        # Порог 0.8 - если модель не уверена, не упоминаем сцену
+        if scene_name != 'unknown' and scene_conf >= 0.8:
             preposition = self._get_preposition(scene_name)
             description = f"{garbage_str} {preposition} the {scene_name}."
         else:
@@ -138,8 +138,10 @@ class CompleteVLM:
         # Вопросы о сцене
         if any(word in q for word in ['where', 'scene', 'surface', 'ground', 'location']):
             scene = self.classify_scene(image)
-            if scene['class'] != 'unknown':
-                return f"The scene is classified as: {scene['class']} ({scene['confidence']:.0%} confidence)."
+            if scene['class'] != 'unknown' and scene['confidence'] >= 0.8:
+                return f"The scene is: {scene['class']} ({scene['confidence']:.0%} confidence)."
+            elif scene['class'] != 'unknown':
+                return "Scene classification uncertain (confidence below 80%)."
             else:
                 return "Scene classifier not available. Train it first!"
         
@@ -167,10 +169,12 @@ class CompleteVLM:
         for scene_cls in SCENE_CLASSES:
             if scene_cls in q:
                 scene = self.classify_scene(image)
-                if scene['class'] == scene_cls:
+                if scene['class'] == scene_cls and scene['confidence'] >= 0.8:
                     return f"Yes, the scene appears to be {scene_cls} ({scene['confidence']:.0%})."
-                else:
+                elif scene['confidence'] >= 0.8:
                     return f"No, the scene is classified as {scene['class']}, not {scene_cls}."
+                else:
+                    return "Scene classification uncertain (confidence below 80%)."
         
         # По умолчанию
         return self.describe(image)

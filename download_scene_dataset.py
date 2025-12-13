@@ -1,169 +1,199 @@
 """
 Скачивание датасета для классификации сцен
 
-Использует Intel Image Classification dataset:
-- buildings → indoor/outdoor_other
-- forest → grass
-- glacier → outdoor_other  
-- mountain → outdoor_other
-- sea → water
-- street → road
-
-Этот датасет бесплатный и доступен через kagglehub
+Использует Roboflow Terrain Classification dataset
+Формат: multiclass (папки по классам)
 """
 
 import os
 import shutil
 from pathlib import Path
 
-# Маппинг классов Intel → наши классы
-CLASS_MAPPING = {
-    'buildings': 'indoor',
-    'forest': 'grass',
-    'glacier': 'outdoor_other',
-    'mountain': 'outdoor_other',
-    'sea': 'water',
-    'street': 'road'
-}
+# API ключ Roboflow
+ROBOFLOW_API_KEY = "IYwUdRPmNzuSjy8A6cOr"
 
-def download_intel_dataset():
-    """Скачивание датасета Intel Image Classification"""
+
+def download_terrain_dataset(output_dir: str = "data/scene_dataset"):
+    """Скачивание Terrain Classification dataset с Roboflow"""
     
-    print("📥 Скачивание Intel Image Classification dataset...")
-    print("   Этот датасет содержит ~25,000 изображений")
+    print("📥 Скачивание Terrain Classification dataset...")
     
     try:
-        import kagglehub
+        from roboflow import Roboflow
         
-        # Скачиваем датасет
-        path = kagglehub.dataset_download("puneet6060/intel-image-classification")
-        print(f"✅ Скачано в: {path}")
-        return path
+        rf = Roboflow(api_key=ROBOFLOW_API_KEY)
+        project = rf.workspace("my-workplace-jkvgm").project("terrain-classification-1cg5i")
+        version = project.version(1)
+        dataset = version.download("multiclass", location=output_dir)
         
-    except ImportError:
-        print("❌ kagglehub не установлен. Установите:")
-        print("   pip install kagglehub")
-        print("\nИЛИ скачайте вручную:")
-        print("   https://www.kaggle.com/datasets/puneet6060/intel-image-classification")
-        return None
+        print(f"✅ Скачано в: {output_dir}")
+        return output_dir
+        
     except Exception as e:
         print(f"❌ Ошибка: {e}")
-        print("\nПопробуйте скачать вручную:")
-        print("   https://www.kaggle.com/datasets/puneet6060/intel-image-classification")
         return None
 
 
-def prepare_scene_dataset(intel_path: str, output_dir: str = "data/scene_dataset"):
+def prepare_roboflow_multiclass(dataset_dir: str, output_dir: str = "data/scene_dataset_prepared"):
     """
-    Конвертирует Intel dataset в наш формат с нужными классами
+    Подготовка Roboflow multiclass датасета для обучения.
+    
+    Roboflow multiclass формат:
+    dataset/
+    ├── train/
+    │   ├── class1/
+    │   │   ├── image1.jpg
+    │   │   └── image2.jpg
+    │   └── class2/
+    │       └── image3.jpg
+    ├── valid/
+    └── test/
+    
+    Если формат другой, эта функция его исправит.
     """
-    intel_path = Path(intel_path)
+    dataset_dir = Path(dataset_dir)
     output_dir = Path(output_dir)
     
-    # Создаём структуру
+    print(f"\n📂 Анализ структуры датасета в {dataset_dir}...")
+    
+    # Проверяем структуру
+    train_dir = None
+    valid_dir = None
+    
+    # Ищем train/valid папки
+    for subdir in dataset_dir.iterdir():
+        if subdir.is_dir():
+            name = subdir.name.lower()
+            if 'train' in name:
+                train_dir = subdir
+            elif 'valid' in name or 'val' in name:
+                valid_dir = subdir
+            elif 'test' in name:
+                if valid_dir is None:
+                    valid_dir = subdir
+    
+    if train_dir is None:
+        # Может быть папки классов прямо в корне
+        class_dirs = [d for d in dataset_dir.iterdir() if d.is_dir() and not d.name.startswith('.')]
+        if class_dirs:
+            print("   Найдены папки классов в корне, используем их как train")
+            train_dir = dataset_dir
+    
+    print(f"   Train: {train_dir}")
+    print(f"   Valid: {valid_dir}")
+    
+    # Определяем классы
+    classes = set()
+    if train_dir:
+        for item in train_dir.iterdir():
+            if item.is_dir() and not item.name.startswith('.'):
+                # Проверяем есть ли изображения внутри
+                images = list(item.glob("*.jpg")) + list(item.glob("*.png")) + list(item.glob("*.jpeg"))
+                if images:
+                    classes.add(item.name)
+    
+    if not classes:
+        print("❌ Не найдены классы. Проверьте структуру датасета.")
+        print("\nСтруктура должна быть:")
+        print("  dataset/train/class_name/images...")
+        return None
+    
+    print(f"\n📋 Найденные классы: {sorted(classes)}")
+    
+    # Создаём выходную структуру
     for split in ['train', 'val']:
-        for cls in set(CLASS_MAPPING.values()):
+        for cls in classes:
             (output_dir / split / cls).mkdir(parents=True, exist_ok=True)
     
-    # Ищем папки с данными
-    # Intel dataset structure: seg_train/seg_train/class_name/
-    train_dirs = list(intel_path.glob("**/seg_train/seg_train"))
-    test_dirs = list(intel_path.glob("**/seg_test/seg_test"))
+    # Копируем файлы
+    total = 0
     
-    if not train_dirs:
-        train_dirs = list(intel_path.glob("**/seg_train"))
-    if not test_dirs:
-        test_dirs = list(intel_path.glob("**/seg_test"))
+    # Train
+    if train_dir:
+        for cls in classes:
+            src = train_dir / cls
+            dst = output_dir / "train" / cls
+            if src.exists():
+                for ext in ['*.jpg', '*.png', '*.jpeg']:
+                    for img in src.glob(ext):
+                        shutil.copy(img, dst / img.name)
+                        total += 1
     
-    if not train_dirs:
-        print(f"❌ Не найдены данные в {intel_path}")
-        print("   Структура должна быть: seg_train/class_name/images...")
-        return
+    # Valid
+    if valid_dir:
+        for cls in classes:
+            src = valid_dir / cls
+            dst = output_dir / "val" / cls
+            if src.exists():
+                for ext in ['*.jpg', '*.png', '*.jpeg']:
+                    for img in src.glob(ext):
+                        shutil.copy(img, dst / img.name)
+                        total += 1
     
-    train_dir = train_dirs[0]
-    test_dir = test_dirs[0] if test_dirs else None
-    
-    print(f"📂 Train: {train_dir}")
-    print(f"📂 Test: {test_dir}")
-    
-    total_copied = 0
-    
-    # Копируем train
-    for intel_class, our_class in CLASS_MAPPING.items():
-        src_dir = train_dir / intel_class
-        dst_dir = output_dir / "train" / our_class
-        
-        if src_dir.exists():
-            for img in src_dir.glob("*.jpg"):
-                shutil.copy(img, dst_dir / f"{intel_class}_{img.name}")
-                total_copied += 1
-            print(f"  {intel_class} → {our_class}: {len(list(src_dir.glob('*.jpg')))} images")
-    
-    # Копируем test → val
-    if test_dir:
-        for intel_class, our_class in CLASS_MAPPING.items():
-            src_dir = test_dir / intel_class
-            dst_dir = output_dir / "val" / our_class
-            
-            if src_dir.exists():
-                for img in src_dir.glob("*.jpg"):
-                    shutil.copy(img, dst_dir / f"{intel_class}_{img.name}")
-                    total_copied += 1
-    
-    print(f"\n✅ Скопировано {total_copied} изображений в {output_dir}")
+    print(f"\n✅ Скопировано {total} изображений")
     
     # Статистика
-    print("\n📊 Статистика датасета:")
+    print("\n📊 Статистика:")
     for split in ['train', 'val']:
         print(f"\n  {split}:")
-        for cls in sorted(set(CLASS_MAPPING.values())):
-            count = len(list((output_dir / split / cls).glob("*.jpg")))
+        for cls in sorted(classes):
+            count = len(list((output_dir / split / cls).glob("*")))
             print(f"    {cls}: {count}")
+    
+    return output_dir, list(classes)
 
 
-def add_additional_classes(output_dir: str = "data/scene_dataset"):
-    """
-    Добавление дополнительных классов (sand, floor)
-    Эти классы нужно добавить вручную или через Roboflow
-    """
-    output_dir = Path(output_dir)
+def update_scene_classes(classes: list):
+    """Обновляет список классов в train_scene_classifier.py"""
     
-    # Создаём папки для недостающих классов
-    missing = ['sand', 'floor']
+    classifier_file = Path("train_scene_classifier.py")
+    if not classifier_file.exists():
+        print("⚠️ train_scene_classifier.py не найден")
+        return
     
-    for cls in missing:
-        for split in ['train', 'val']:
-            (output_dir / split / cls).mkdir(parents=True, exist_ok=True)
+    content = classifier_file.read_text(encoding='utf-8')
     
-    print("\n⚠️ Недостающие классы (нужно добавить вручную):")
-    print("   - sand: изображения пляжей, песка")
-    print("   - floor: изображения полов (плитка, паркет)")
-    print("\nМожно найти на:")
-    print("   - https://universe.roboflow.com/ (поиск: sand, floor)")
-    print("   - https://unsplash.com/ (бесплатные фото)")
-    print("   - Google Images")
+    # Находим и заменяем SCENE_CLASSES
+    import re
+    new_classes = repr(classes)
+    content = re.sub(
+        r"SCENE_CLASSES = \[.*?\]",
+        f"SCENE_CLASSES = {new_classes}",
+        content,
+        flags=re.DOTALL
+    )
+    
+    classifier_file.write_text(content, encoding='utf-8')
+    print(f"\n✅ Обновлены классы в train_scene_classifier.py: {classes}")
 
 
 if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("--download", action="store_true", help="Download Intel dataset")
-    parser.add_argument("--prepare", type=str, help="Path to downloaded Intel dataset")
+    parser.add_argument("--download", action="store_true", help="Download Roboflow dataset")
+    parser.add_argument("--prepare", type=str, help="Path to downloaded dataset to prepare")
     parser.add_argument("--output", type=str, default="data/scene_dataset")
     
     args = parser.parse_args()
     
     if args.download:
-        path = download_intel_dataset()
-        if path:
-            prepare_scene_dataset(path, args.output)
-            add_additional_classes(args.output)
+        # Скачиваем
+        raw_path = download_terrain_dataset("data/scene_dataset_raw")
+        
+        if raw_path:
+            # Подготавливаем
+            result = prepare_roboflow_multiclass(raw_path, args.output)
+            if result:
+                output_dir, classes = result
+                update_scene_classes(classes)
+                print(f"\n🎉 Датасет готов в {output_dir}")
     elif args.prepare:
-        prepare_scene_dataset(args.prepare, args.output)
-        add_additional_classes(args.output)
+        result = prepare_roboflow_multiclass(args.prepare, args.output)
+        if result:
+            output_dir, classes = result
+            update_scene_classes(classes)
     else:
         print("Использование:")
         print("  python download_scene_dataset.py --download")
-        print("  python download_scene_dataset.py --prepare /path/to/intel_dataset")
-
+        print("  python download_scene_dataset.py --prepare /path/to/dataset")
