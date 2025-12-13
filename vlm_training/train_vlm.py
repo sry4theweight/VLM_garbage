@@ -207,11 +207,16 @@ def train_vlm(
     # Загрузка модели и процессора
     print(f"Loading model: {base_model}...")
     processor = AutoProcessor.from_pretrained(base_model, use_fast=True)
+    
+    # Загружаем модель на одно устройство (без device_map для корректного backward)
     model = LlavaForConditionalGeneration.from_pretrained(
         base_model,
-        dtype=torch.float16 if device == "cuda" else torch.float32,
-        device_map="auto" if device == "cuda" else None
+        torch_dtype=torch.float16 if device == "cuda" else torch.float32,
+        low_cpu_mem_usage=True
     )
+    
+    if device == "cuda":
+        model = model.to(device)
     
     # Применение LoRA если нужно
     if use_lora:
