@@ -116,11 +116,13 @@ class CompleteVLM:
     
     def _get_preposition(self, scene):
         """Правильный предлог для сцены"""
-        if scene in ['water']:
-            return 'near'
-        elif scene in ['indoor', 'floor']:
+        if scene in ['marshy']:
+            return 'in'
+        elif scene in ['rocky']:
             return 'on'
-        else:
+        elif scene in ['sandy']:
+            return 'on'
+        else:  # grass и другие
             return 'on'
     
     def answer(self, image_path, question):

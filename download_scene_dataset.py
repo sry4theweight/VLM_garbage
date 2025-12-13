@@ -34,101 +34,120 @@ def download_terrain_dataset(output_dir: str = "data/scene_dataset"):
         return None
 
 
-def prepare_roboflow_multiclass(dataset_dir: str, output_dir: str = "data/scene_dataset_prepared"):
+def prepare_roboflow_multiclass(dataset_dir: str, output_dir: str = "data/scene_dataset"):
     """
     Подготовка Roboflow multiclass датасета для обучения.
     
-    Roboflow multiclass формат:
+    Roboflow multiclass формат (CSV с one-hot encoding):
     dataset/
     ├── train/
-    │   ├── class1/
-    │   │   ├── image1.jpg
-    │   │   └── image2.jpg
-    │   └── class2/
-    │       └── image3.jpg
+    │   ├── _classes.csv  (filename, class1, class2, ...)
+    │   └── *.jpg
     ├── valid/
     └── test/
-    
-    Если формат другой, эта функция его исправит.
     """
+    import csv
+    
     dataset_dir = Path(dataset_dir)
     output_dir = Path(output_dir)
     
     print(f"\n📂 Анализ структуры датасета в {dataset_dir}...")
     
-    # Проверяем структуру
-    train_dir = None
-    valid_dir = None
-    
-    # Ищем train/valid папки
+    # Ищем папки train/valid/test
+    splits_map = {}
     for subdir in dataset_dir.iterdir():
         if subdir.is_dir():
             name = subdir.name.lower()
             if 'train' in name:
-                train_dir = subdir
+                splits_map['train'] = subdir
             elif 'valid' in name or 'val' in name:
-                valid_dir = subdir
+                splits_map['val'] = subdir
             elif 'test' in name:
-                if valid_dir is None:
-                    valid_dir = subdir
+                splits_map['test'] = subdir
     
-    if train_dir is None:
-        # Может быть папки классов прямо в корне
-        class_dirs = [d for d in dataset_dir.iterdir() if d.is_dir() and not d.name.startswith('.')]
-        if class_dirs:
-            print("   Найдены папки классов в корне, используем их как train")
-            train_dir = dataset_dir
+    if not splits_map:
+        # Может быть _classes.csv в корне
+        if (dataset_dir / '_classes.csv').exists():
+            splits_map['train'] = dataset_dir
     
-    print(f"   Train: {train_dir}")
-    print(f"   Valid: {valid_dir}")
+    print(f"   Найдены splits: {list(splits_map.keys())}")
     
-    # Определяем классы
-    classes = set()
-    if train_dir:
-        for item in train_dir.iterdir():
-            if item.is_dir() and not item.name.startswith('.'):
-                # Проверяем есть ли изображения внутри
-                images = list(item.glob("*.jpg")) + list(item.glob("*.png")) + list(item.glob("*.jpeg"))
-                if images:
-                    classes.add(item.name)
+    # Читаем классы из первого CSV
+    classes = []
+    for split_name, split_dir in splits_map.items():
+        csv_path = split_dir / '_classes.csv'
+        if csv_path.exists():
+            with open(csv_path, 'r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                header = next(reader)
+                # Первая колонка - filename, остальные - классы
+                classes = [col.strip() for col in header[1:]]
+                print(f"   Классы из CSV: {classes}")
+                break
     
     if not classes:
-        print("❌ Не найдены классы. Проверьте структуру датасета.")
-        print("\nСтруктура должна быть:")
-        print("  dataset/train/class_name/images...")
+        print("❌ Не найден _classes.csv")
         return None
-    
-    print(f"\n📋 Найденные классы: {sorted(classes)}")
     
     # Создаём выходную структуру
     for split in ['train', 'val']:
         for cls in classes:
             (output_dir / split / cls).mkdir(parents=True, exist_ok=True)
     
-    # Копируем файлы
+    # Обрабатываем каждый split
     total = 0
+    stats = {split: {cls: 0 for cls in classes} for split in ['train', 'val']}
     
-    # Train
-    if train_dir:
-        for cls in classes:
-            src = train_dir / cls
-            dst = output_dir / "train" / cls
-            if src.exists():
-                for ext in ['*.jpg', '*.png', '*.jpeg']:
-                    for img in src.glob(ext):
-                        shutil.copy(img, dst / img.name)
-                        total += 1
-    
-    # Valid
-    if valid_dir:
-        for cls in classes:
-            src = valid_dir / cls
-            dst = output_dir / "val" / cls
-            if src.exists():
-                for ext in ['*.jpg', '*.png', '*.jpeg']:
-                    for img in src.glob(ext):
-                        shutil.copy(img, dst / img.name)
-                        total += 1
+    for split_name, split_dir in splits_map.items():
+        # Маппинг: test -> val для выходной структуры
+        out_split = 'val' if split_name == 'test' else split_name
+        if out_split not in ['train', 'val']:
+            out_split = 'train'
+        
+        csv_path = split_dir / '_classes.csv'
+        if not csv_path.exists():
+            continue
+        
+        print(f"\n   Обработка {split_name}...")
+        
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            header = next(reader)  # Пропускаем заголовок
+            
+            for row in reader:
+                if len(row) < 2:
+                    continue
+                
+                filename = row[0].strip()
+                values = [int(v.strip()) for v in row[1:]]
+                
+                # Находим класс (колонка с 1)
+                class_idx = None
+                for i, v in enumerate(values):
+                    if v == 1:
+                        class_idx = i
+                        break
+                
+                if class_idx is None or class_idx >= len(classes):
+                    continue
+                
+                class_name = classes[class_idx]
+                
+                # Ищем изображение
+                src_img = split_dir / filename
+                if not src_img.exists():
+                    # Пробуем разные расширения
+                    for ext in ['.jpg', '.jpeg', '.png']:
+                        test_path = split_dir / (Path(filename).stem + ext)
+                        if test_path.exists():
+                            src_img = test_path
+                            break
+                
+                if src_img.exists():
+                    dst_dir = output_dir / out_split / class_name
+                    shutil.copy(src_img, dst_dir / src_img.name)
+                    stats[out_split][class_name] += 1
+                    total += 1
     
     print(f"\n✅ Скопировано {total} изображений")
     
@@ -136,11 +155,10 @@ def prepare_roboflow_multiclass(dataset_dir: str, output_dir: str = "data/scene_
     print("\n📊 Статистика:")
     for split in ['train', 'val']:
         print(f"\n  {split}:")
-        for cls in sorted(classes):
-            count = len(list((output_dir / split / cls).glob("*")))
-            print(f"    {cls}: {count}")
+        for cls in classes:
+            print(f"    {cls}: {stats[split][cls]}")
     
-    return output_dir, list(classes)
+    return output_dir, classes
 
 
 def update_scene_classes(classes: list):

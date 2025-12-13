@@ -16,8 +16,8 @@ from pathlib import Path
 import json
 from tqdm import tqdm
 
-# Классы сцен
-SCENE_CLASSES = ['grass', 'road', 'sand', 'water', 'floor', 'indoor', 'outdoor_other']
+# Классы сцен (из Roboflow Terrain Classification датасета)
+SCENE_CLASSES = ['grass', 'marshy', 'rocky', 'sandy']
 
 
 class SceneDataset(Dataset):
