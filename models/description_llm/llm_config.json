@@ -1,0 +1,9 @@
+{
+  "model_path": "models/description_llm",
+  "model_type": "t5",
+  "base_model": "google/flan-t5-base",
+  "prompt_template": "Describe the garbage detected based on this CV output:\n{input}\nDescription:",
+  "max_input_length": 256,
+  "max_output_length": 128,
+  "num_beams": 4
+}

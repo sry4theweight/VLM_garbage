@@ -1,0 +1,756 @@
+{
+  "metrics": {
+    "total_samples": 100,
+    "class_mention_accuracy": {
+      "glass": 0.96,
+      "metal": 1.0,
+      "organic": 0.0,
+      "paper": 0.39285714285714285,
+      "plastic": 1.0
+    },
+    "count_accuracy": {
+      "glass": 0.96,
+      "metal": 0.8571428571428571,
+      "organic": 0.0,
+      "paper": 0.39285714285714285,
+      "plastic": 1.0
+    },
+    "scene_accuracy": 0.9622641509433962,
+    "overall_factual_accuracy": 0.8333333333333334,
+    "avg_description_length": 7.16,
+    "std_description_length": 2.0185143051264216
+  },
+  "samples": [
+    {
+      "image": "240_png.rf.fc956aa2a0f877f1ea347561c870b168.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "glass",
+            "confidence": 0.54
+          },
+          {
+            "label": "glass",
+            "confidence": 0.54
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.9
+        }
+      },
+      "description": "The scene shows 2 glass bottles in marshy area.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": true,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "00761_jpg.rf.61bfc7937d0b1dcdb8943822f5077ea0.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.64
+          },
+          {
+            "label": "paper",
+            "confidence": 0.9
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.68
+        }
+      },
+      "description": "The scene shows 2 cardboard boxes.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "cardboard1335_jpg.rf.de30cb41202a8b1fe601a867b19f7bef.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.98
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.84
+        }
+      },
+      "description": "The scene shows 1 cardboard boxe on sandy surface.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "C-202-_jpg.rf.f0f1f9bdd20e4b107743a11a73d57072.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "metal",
+            "confidence": 0.65
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.58
+        }
+      },
+      "description": "Detected: 1 metal scrap.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": true,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "black_board1_220_jpg.rf.cd9f437926e1b6177dabff2d22877ba1.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "plastic",
+            "confidence": 0.96
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 1.0
+        }
+      },
+      "description": "This image contains 1 plastic waste on sandy surface.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": true
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "62ab2cba6d6fa62ab2cba6d701_frame4_jpg.rf.6d94132e026029a7c35ff2147ce338b3.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "plastic",
+            "confidence": 0.82
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 1.0
+        }
+      },
+      "description": "This image contains 1 plastic waste on sandy surface.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": true
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "20230518_115439_jpg.rf.483676dc4e149595ece28486a647667d.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "plastic",
+            "confidence": 0.97
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.96
+        }
+      },
+      "description": "Detected: 1 plastic waste on sandy surface.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": true
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "20221002_153221_jpg.rf.b25c24143436d8b6800eb0eb50799f0a.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "glass",
+            "confidence": 0.46
+          },
+          {
+            "label": "paper",
+            "confidence": 0.35
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.99
+        }
+      },
+      "description": "The scene shows 1 broken gla and 1 discarded paper on sandy ground.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": true,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": false,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "metal388_jpg.rf.56a7cebae9884d12442185530d616a67.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.73
+          }
+        ],
+        "scene": {
+          "class": "rocky",
+          "confidence": 0.6
+        }
+      },
+      "description": "Detected: 1 cardboard piece.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "00891_jpg.rf.e1c29eeac75d84edbefdb661a1ccb1a2.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.93
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.7
+        }
+      },
+      "description": "The scene shows 1 paper waste.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": true,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "00858_jpeg.rf.8ec70a5a58648b8af87f375909e3ea4f.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.51
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.46
+        }
+      },
+      "description": "The scene shows 1 cardboard piece.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "20221002_153931_jpg.rf.8b7f291577889c3cc59a19a305197503.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.33
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.58
+        }
+      },
+      "description": "I can see 1 paper waste.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": true,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "black_board1_165_jpg.rf.d20c1510cc2d66dd6bb7748f2a9511b2.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "plastic",
+            "confidence": 0.96
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.95
+        }
+      },
+      "description": "Detected: 1 plastic waste on sandy surface.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": true
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "bungkus-rokok-144-_jpg.rf.5f0d141f4c366180501d9bc026c8c31d.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.9
+          },
+          {
+            "label": "paper",
+            "confidence": 0.88
+          },
+          {
+            "label": "paper",
+            "confidence": 0.85
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 1.0
+        }
+      },
+      "description": "The scene shows 3 paper debris in marshy area.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": true,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "th_true-4-_png.rf.e3da5c4b969b19a6ea267f6c74b0734e.jpg",
+      "cv_output": {
+        "detections": [],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.74
+        }
+      },
+      "description": "No garbage detected in this image.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": true
+      }
+    },
+    {
+      "image": "00779_jpg.rf.a0cd3f36f946bc8ad526b84cafc11489.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.93
+          }
+        ],
+        "scene": {
+          "class": "grass",
+          "confidence": 0.92
+        }
+      },
+      "description": "The scene shows 1 cardboard boxe in grass.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "biodegradable1290_jpg.rf.ae3d6f6535106b2e7db172c6d527c9ac.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "organic",
+            "confidence": 0.37
+          },
+          {
+            "label": "organic",
+            "confidence": 0.77
+          },
+          {
+            "label": "organic",
+            "confidence": 0.76
+          },
+          {
+            "label": "organic",
+            "confidence": 0.5
+          }
+        ],
+        "scene": {
+          "class": "rocky",
+          "confidence": 0.64
+        }
+      },
+      "description": "Detected: 4 food scraps.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": false,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "metal292_jpg.rf.4450b8cfacf49f1c90bf289bc3cc2afb.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "metal",
+            "confidence": 0.92
+          }
+        ],
+        "scene": {
+          "class": "marshy",
+          "confidence": 0.9
+        }
+      },
+      "description": "This image contains 1 metal scrap in marshy area.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": true,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": true,
+        "scene_correct": true,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "black_board1_179_jpg.rf.7e9a5653553fdb2c8c97fa4c2544baf6.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "plastic",
+            "confidence": 0.96
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.74
+        }
+      },
+      "description": "The scene shows 1 plastic item.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": true
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": true,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    },
+    {
+      "image": "paper104_jpg.rf.235261ee5f4fbdcc849e56a18d35f24b.jpg",
+      "cv_output": {
+        "detections": [
+          {
+            "label": "paper",
+            "confidence": 0.42
+          },
+          {
+            "label": "paper",
+            "confidence": 0.96
+          }
+        ],
+        "scene": {
+          "class": "sandy",
+          "confidence": 0.61
+        }
+      },
+      "description": "The scene shows 2 cardboard boxes.",
+      "factual_check": {
+        "class_mentioned": {
+          "glass": false,
+          "metal": false,
+          "organic": false,
+          "paper": false,
+          "plastic": false
+        },
+        "count_correct": {
+          "glass": true,
+          "metal": true,
+          "organic": true,
+          "paper": false,
+          "plastic": true
+        },
+        "scene_mentioned": false,
+        "scene_correct": false,
+        "no_garbage_correct": false
+      }
+    }
+  ]
+}

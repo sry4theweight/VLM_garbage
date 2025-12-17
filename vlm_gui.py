@@ -6,6 +6,8 @@ import threading
 import sys
 import os
 import random
+import json
+import torch
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,6 +41,54 @@ CLASS_EMOJI = {
     'paper': '📄',
     'organic': '🍎',
 }
+
+PROMPT_TEMPLATE = """Describe the garbage detected based on this CV output:
+{input}
+Description:"""
+
+
+class DescriptionLLM:
+    def __init__(self, model_path: str):
+        from transformers import T5ForConditionalGeneration, T5Tokenizer
+        
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.tokenizer = T5Tokenizer.from_pretrained(model_path)
+        self.model = T5ForConditionalGeneration.from_pretrained(model_path).to(self.device)
+        self.model.eval()
+        
+        config_path = Path(model_path) / "llm_config.json"
+        if config_path.exists():
+            with open(config_path) as f:
+                self.config = json.load(f)
+        else:
+            self.config = {
+                "prompt_template": PROMPT_TEMPLATE,
+                "max_input_length": 256,
+                "max_output_length": 128,
+                "num_beams": 4
+            }
+    
+    def generate(self, cv_output: dict) -> str:
+        prompt = self.config.get("prompt_template", PROMPT_TEMPLATE).format(input=json.dumps(cv_output))
+        
+        inputs = self.tokenizer(
+            prompt, 
+            return_tensors="pt", 
+            max_length=self.config.get("max_input_length", 256), 
+            truncation=True
+        )
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
+        
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_length=self.config.get("max_output_length", 128),
+                num_beams=self.config.get("num_beams", 4),
+                early_stopping=True,
+                no_repeat_ngram_size=2
+            )
+        
+        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 
 class ModernButton(tk.Canvas):
@@ -130,6 +180,7 @@ class VLMApp:
         self.root.minsize(1200, 800)
         
         self.vlm = None
+        self.llm = None
         self.current_image = None
         self.current_image_path = None
         self.detections = []
@@ -234,7 +285,7 @@ class VLMApp:
         right_panel.pack(side=tk.RIGHT, fill=tk.BOTH)
         right_panel.pack_propagate(False)
         
-        self._create_card(right_panel, "📝 Описание", self._create_description_content)
+        self._create_card(right_panel, "📝 Описание (LLM)", self._create_description_content)
         self._create_card(right_panel, "🎯 Детекции", self._create_detections_content, expand=True)
         self._create_card(right_panel, "🌍 Сцена", self._create_scene_content)
         self._create_card(right_panel, "⚙️ Отображение", self._create_options_content)
@@ -390,23 +441,41 @@ class VLMApp:
     def load_vlm_async(self):
         def load():
             try:
-                from VLM_Complete import CompleteVLM
+                from vlm_annotation.ensemble_detector import EnsembleDetector
                 
+                self.detector = EnsembleDetector(
+                    yolo_model_path="models/yolo/yolov8x/best.pt",
+                    detr_model_path="models/rt-detr/rt-detr-101/m",
+                    detr_processor_path="models/rt-detr/rt-detr-101/p",
+                    conf_threshold=0.5
+                )
+                
+                self.scene_classifier = None
                 scene_path = None
                 if Path("models/scene_classifier_yolo.pt").exists():
                     scene_path = "models/scene_classifier_yolo.pt"
                 elif Path("models/scene_classifier.pt").exists():
                     scene_path = "models/scene_classifier.pt"
                 
-                self.vlm = CompleteVLM(
-                    yolo_path="models/yolo/yolov8x/best.pt",
-                    detr_path="models/rt-detr/rt-detr-101/m",
-                    detr_processor_path="models/rt-detr/rt-detr-101/p",
-                    scene_classifier_path=scene_path,
-                    conf_threshold=0.5
-                )
+                if scene_path:
+                    if 'yolo' in scene_path.lower():
+                        from train_scene_yolo import SceneClassifierYOLO
+                        self.scene_classifier = SceneClassifierYOLO(scene_path)
+                    else:
+                        from train_scene_classifier import SceneClassifierInference
+                        self.scene_classifier = SceneClassifierInference(scene_path)
                 
                 self.scene_type = "YOLO" if scene_path and 'yolo' in scene_path.lower() else "MobileNet"
+                
+                llm_path = Path("models/description_llm")
+                if llm_path.exists():
+                    self.llm = DescriptionLLM(str(llm_path))
+                    self.llm_loaded = True
+                else:
+                    self.llm = None
+                    self.llm_loaded = False
+                
+                self.vlm = True
                 self.root.after(0, self.on_vlm_loaded)
                 
             except Exception as e:
@@ -420,8 +489,9 @@ class VLMApp:
     
     def on_vlm_loaded(self):
         scene_info = f" | Сцена: {getattr(self, 'scene_type', 'N/A')}"
+        llm_info = " | LLM: ✅" if getattr(self, 'llm_loaded', False) else " | LLM: ❌"
         self.status_label.config(
-            text=f"✅ Модели загружены{scene_info}",
+            text=f"✅ Модели загружены{scene_info}{llm_info}",
             fg=COLORS['accent_green']
         )
     
@@ -431,6 +501,56 @@ class VLMApp:
             fg=COLORS['accent_red']
         )
         messagebox.showerror("Ошибка загрузки", f"Не удалось загрузить модели:\n{error}")
+    
+    def get_cv_output(self, image) -> dict:
+        detections = self.detector.detect(image)
+        
+        detection_summary = [
+            {"label": det["label"], "confidence": round(det["confidence"], 2)}
+            for det in detections
+        ]
+        
+        scene = {"class": "unknown", "confidence": 0.0}
+        if self.scene_classifier and self.scene_enabled.get():
+            scene_result = self.scene_classifier.predict(image)
+            scene = {
+                "class": scene_result["class"],
+                "confidence": round(scene_result["confidence"], 2)
+            }
+        
+        return {
+            "detections": detection_summary,
+            "scene": scene
+        }
+    
+    def generate_description(self, cv_output: dict) -> str:
+        if self.llm:
+            return self.llm.generate(cv_output)
+        else:
+            return self._fallback_description(cv_output)
+    
+    def _fallback_description(self, cv_output: dict) -> str:
+        detections = cv_output["detections"]
+        scene = cv_output["scene"]
+        
+        counts = {}
+        for det in detections:
+            label = det["label"]
+            counts[label] = counts.get(label, 0) + 1
+        
+        total = sum(counts.values())
+        
+        if total == 0:
+            return "No garbage detected."
+        
+        items = [f"{count} {cls}" for cls, count in counts.items() if count > 0]
+        garbage_str = "There is " + ", ".join(items)
+        
+        if scene["class"] != "unknown" and scene["confidence"] >= 0.8:
+            preposition = "in" if scene["class"] == "marshy" else "on"
+            return f"{garbage_str} {preposition} the {scene['class']}."
+        
+        return f"{garbage_str} detected."
     
     def open_image(self):
         file_path = filedialog.askopenfilename(
@@ -463,8 +583,8 @@ class VLMApp:
     
     def random_image(self):
         search_dirs = [
-            Path("data/roboflow_dataset/valid"),
-            Path("data/roboflow_dataset/test"),
+            Path("data/1206-data/valid"),
+            Path("data/1206-data/test"),
         ]
         
         images = []
@@ -512,15 +632,37 @@ class VLMApp:
         self.root.update()
         
         try:
-            self.analysis = self.vlm.get_full_analysis(path)
-            self.detections = self.analysis['garbage']['detections']
+            raw_detections = self.detector.detect(self.current_image)
+            self.detections = raw_detections
             
-            if not self.scene_enabled.get():
-                self.analysis['scene'] = {'class': 'disabled', 'confidence': 0.0}
+            counts = {}
+            for det in raw_detections:
+                label = det['label']
+                counts[label] = counts.get(label, 0) + 1
             
-            self.update_description(self.analysis['description'] if self.scene_enabled.get() else self._get_description_no_scene())
+            scene = {"class": "unknown", "confidence": 0.0}
+            if self.scene_classifier and self.scene_enabled.get():
+                scene = self.scene_classifier.predict(self.current_image)
+            elif not self.scene_enabled.get():
+                scene = {"class": "disabled", "confidence": 0.0}
+            
+            cv_output = self.get_cv_output(self.current_image)
+            description = self.generate_description(cv_output)
+            
+            self.analysis = {
+                'garbage': {
+                    'detections': raw_detections,
+                    'counts': counts,
+                    'total': sum(counts.values())
+                },
+                'scene': scene,
+                'description': description,
+                'cv_output': cv_output
+            }
+            
+            self.update_description(description)
             self.update_detections(self.detections)
-            self.update_scene(self.analysis['scene'])
+            self.update_scene(scene)
             self.redraw_image()
             
             count = self.analysis['garbage']['total']
@@ -533,19 +675,6 @@ class VLMApp:
             self.status_label.config(text=f"❌ Ошибка: {e}", fg=COLORS['accent_red'])
             import traceback
             traceback.print_exc()
-    
-    def _get_description_no_scene(self):
-        counts = self.analysis['garbage']['counts']
-        total = sum(counts.values())
-        
-        if total == 0:
-            return "No garbage detected."
-        
-        items = []
-        for cls, count in counts.items():
-            if count > 0:
-                items.append(f"{count} {cls}")
-        return "There is " + ", ".join(items) + " detected."
     
     def redraw_image(self):
         if self.current_image is None:
@@ -666,24 +795,26 @@ class VLMApp:
         if not question:
             return
         
-        if not self.scene_enabled.get():
-            answer = self._answer_no_scene(question)
-        else:
-            answer = self.vlm.answer(self.current_image_path, question)
+        answer = self._answer_question(question)
         self.answer_label.config(text=f"💡 {answer}")
     
-    def _answer_no_scene(self, question):
+    def _answer_question(self, question: str) -> str:
         q = question.lower()
+        counts = self.analysis['garbage']['counts']
+        total = sum(counts.values())
+        scene = self.analysis['scene']
+        
         scene_words = ['where', 'scene', 'surface', 'ground', 'location', 'grass', 'marshy', 'rocky', 'sandy']
         
         if any(word in q for word in scene_words):
-            return "Scene classifier is disabled."
-        
-        counts = self.analysis['garbage']['counts']
-        total = sum(counts.values())
+            if not self.scene_enabled.get():
+                return "Scene classifier is disabled."
+            if scene['class'] != 'unknown' and scene['confidence'] >= 0.8:
+                return f"The scene is: {scene['class']} ({scene['confidence']:.0%} confidence)."
+            return "Scene classification uncertain."
         
         if "what" in q or "describe" in q:
-            return self._get_description_no_scene()
+            return self.analysis['description']
         
         if "how many" in q:
             for cls in ['glass', 'plastic', 'metal', 'paper', 'organic']:
@@ -700,7 +831,7 @@ class VLMApp:
                 else:
                     return f"No {cls} detected."
         
-        return self._get_description_no_scene()
+        return self.analysis['description']
     
     def save_result(self):
         if self.current_image is None:
