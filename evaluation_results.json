@@ -1,0 +1,233 @@
+{
+  "detector": {
+    "per_class": {
+      "glass": {
+        "precision": 0.4444444444444444,
+        "recall": 0.9,
+        "f1": 0.5950413223140495,
+        "ap": 0.39999999999999997,
+        "tp": 36,
+        "fp": 45,
+        "fn": 4
+      },
+      "metal": {
+        "precision": 1.0,
+        "recall": 0.35294117647058826,
+        "f1": 0.5217391304347826,
+        "ap": 0.35294117647058826,
+        "tp": 18,
+        "fp": 0,
+        "fn": 33
+      },
+      "organic": {
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0,
+        "ap": 0.0,
+        "tp": 0,
+        "fp": 3,
+        "fn": 0
+      },
+      "paper": {
+        "precision": 0.6956521739130435,
+        "recall": 0.41025641025641024,
+        "f1": 0.5161290322580646,
+        "ap": 0.3589745050271367,
+        "tp": 16,
+        "fp": 7,
+        "fn": 23
+      },
+      "plastic": {
+        "precision": 0.9464285714285714,
+        "recall": 0.7794117647058824,
+        "f1": 0.8548387096774193,
+        "ap": 0.73765756302521,
+        "tp": 53,
+        "fp": 3,
+        "fn": 15
+      }
+    },
+    "overall": {
+      "precision": 0.6795580110497238,
+      "recall": 0.6212121212121212,
+      "f1": 0.6490765171503957,
+      "mAP": 0.369914648904587
+    },
+    "timing": {
+      "avg_ms": 52.63876676559448,
+      "std_ms": 38.27186790216212
+    },
+    "counts": {
+      "total_tp": 123,
+      "total_fp": 58,
+      "total_fn": 75,
+      "images": 100
+    }
+  },
+  "scene_classifier": {
+    "accuracy": 0.97,
+    "macro_f1": 0.9702534931193468,
+    "per_class": {
+      "grass": {
+        "precision": 0.9642857142857143,
+        "recall": 0.9642857142857143,
+        "f1": 0.9642857142857143,
+        "support": 28
+      },
+      "marshy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2
+      },
+      "rocky": {
+        "precision": 0.95,
+        "recall": 0.9047619047619048,
+        "f1": 0.9268292682926829,
+        "support": 21
+      },
+      "sandy": {
+        "precision": 0.98,
+        "recall": 1.0,
+        "f1": 0.98989898989899,
+        "support": 49
+      }
+    },
+    "confusion_matrix": [
+      [
+        27,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        19,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        49
+      ]
+    ],
+    "classes": [
+      "grass",
+      "marshy",
+      "rocky",
+      "sandy"
+    ],
+    "timing": {
+      "avg_ms": 14.625554084777832,
+      "std_ms": 18.404635923435855
+    },
+    "confidence": {
+      "mean": 0.9753469467163086,
+      "std": 0.06438561249045138
+    }
+  },
+  "vlm": {
+    "detection_stats": {
+      "glass": 75,
+      "plastic": 40,
+      "metal": 6,
+      "paper": 43,
+      "organic": 2
+    },
+    "scene_stats": {
+      "uncertain": 52,
+      "sandy": 29,
+      "marshy": 15,
+      "rocky": 3,
+      "grass": 1
+    },
+    "confident_scenes_ratio": 0.48,
+    "timing": {
+      "avg_ms": 138.88116836547852,
+      "median_ms": 136.4356279373169,
+      "min_ms": 127.32887268066406,
+      "max_ms": 358.48093032836914,
+      "fps": 7.200400254182831
+    },
+    "examples": [
+      {
+        "image": "paper1083_jpg.rf.f97d3256e12d596ef157060469c8f5a3.jpg",
+        "description": "There is 2 paper, 1 organic detected.",
+        "garbage_total": 3,
+        "scene": "grass",
+        "scene_confidence": 0.45652318000793457
+      },
+      {
+        "image": "10288608837682_jpg.rf.1dc3aae8ab4963a2d77e17eac0f60c8a.jpg",
+        "description": "There is 6 paper detected.",
+        "garbage_total": 6,
+        "scene": "marshy",
+        "scene_confidence": 0.48905786871910095
+      },
+      {
+        "image": "0037_jpg.rf.79174ac1e980b8c899f98025cceaaa01.jpg",
+        "description": "There is 1 plastic on the sandy.",
+        "garbage_total": 1,
+        "scene": "sandy",
+        "scene_confidence": 0.9919961094856262
+      },
+      {
+        "image": "plastic404_jpg.rf.9f05b223d00429d422c82bc4d8e37c99.jpg",
+        "description": "There is 1 plastic in the marshy.",
+        "garbage_total": 1,
+        "scene": "marshy",
+        "scene_confidence": 0.847975492477417
+      },
+      {
+        "image": "a09599e0-AluCan385_jpg.rf.b53676777ee1f982879d870022f07b85.jpg",
+        "description": "There is 1 glass detected.",
+        "garbage_total": 1,
+        "scene": "rocky",
+        "scene_confidence": 0.581221878528595
+      },
+      {
+        "image": "79571e5a-AluCan934_jpg.rf.3fa8752b35533498947ac5ac0df7ee74.jpg",
+        "description": "No garbage on the sandy.",
+        "garbage_total": 0,
+        "scene": "sandy",
+        "scene_confidence": 0.9999401569366455
+      },
+      {
+        "image": "63171c1284c5163171c1284c57_frame75_jpg.rf.59c8781438e989bcaf75e1d7a85c3b06.jpg",
+        "description": "There is 1 glass in the marshy.",
+        "garbage_total": 1,
+        "scene": "marshy",
+        "scene_confidence": 0.9527236819267273
+      },
+      {
+        "image": "20221002_152720_jpg.rf.781df717ab24f7295bc38d72e89cbf07.jpg",
+        "description": "There is 1 glass on the sandy.",
+        "garbage_total": 1,
+        "scene": "sandy",
+        "scene_confidence": 0.9118768572807312
+      },
+      {
+        "image": "plastic32_jpg.rf.e571d9d34559c3084bea0457aade7236.jpg",
+        "description": "There is 1 plastic in the marshy.",
+        "garbage_total": 1,
+        "scene": "marshy",
+        "scene_confidence": 0.8632614016532898
+      },
+      {
+        "image": "0a0a1694-AluCan422_jpg.rf.a23162c1929511db61fa494916184ac9.jpg",
+        "description": "There is 1 metal on the sandy.",
+        "garbage_total": 1,
+        "scene": "sandy",
+        "scene_confidence": 0.9999732971191406
+      }
+    ]
+  }
+}

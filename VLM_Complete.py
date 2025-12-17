@@ -1,7 +1,7 @@
 """
 ПОЛНАЯ VLM архитектура
 - Ваш ансамбль (YOLO + RT-DETR) для детекции мусора
-- Ваш классификатор сцен для определения окружения
+- Ваш классификатор сцен для определения окружения (YOLO или MobileNet)
 
 Результат: "There is plastic on the grass"
 """
@@ -13,7 +13,25 @@ from pathlib import Path
 import torch
 
 from vlm_annotation.ensemble_detector import EnsembleDetector
-from train_scene_classifier import SceneClassifierInference, SCENE_CLASSES
+
+# Классы сцен
+SCENE_CLASSES = ['grass', 'marshy', 'rocky', 'sandy']
+
+
+def load_scene_classifier(model_path: str):
+    """
+    Загрузка классификатора сцен (автоопределение типа: YOLO или MobileNet)
+    """
+    if model_path is None or not Path(model_path).exists():
+        return None
+    
+    # Определяем тип модели по пути
+    if 'yolo' in model_path.lower():
+        from train_scene_yolo import SceneClassifierYOLO
+        return SceneClassifierYOLO(model_path)
+    else:
+        from train_scene_classifier import SceneClassifierInference
+        return SceneClassifierInference(model_path)
 
 
 class CompleteVLM:
@@ -41,14 +59,15 @@ class CompleteVLM:
         self.garbage_classes = ['glass', 'plastic', 'metal', 'paper', 'organic']
         print("✅ Ансамбль детекторов загружен!")
         
-        # Ваш классификатор сцен
+        # Ваш классификатор сцен (YOLO или MobileNet)
         self.scene_classifier = None
         if scene_classifier_path and Path(scene_classifier_path).exists():
-            self.scene_classifier = SceneClassifierInference(scene_classifier_path)
-            print("✅ Классификатор сцен загружен!")
+            self.scene_classifier = load_scene_classifier(scene_classifier_path)
+            classifier_type = "YOLO" if 'yolo' in scene_classifier_path.lower() else "MobileNet"
+            print(f"✅ Классификатор сцен загружен ({classifier_type})!")
         else:
             print("⚠️ Классификатор сцен не найден. Описание сцены недоступно.")
-            print("   Обучите его: python train_scene_classifier.py")
+            print("   Обучите его: python train_scene_yolo.py")
     
     def detect_garbage(self, image):
         """Детекция мусора вашим ансамблем"""
@@ -209,14 +228,21 @@ if __name__ == "__main__":
     
     print("\n" + "="*60)
     print("ПОЛНАЯ VLM АРХИТЕКТУРА")
-    print("CV = Ваш ансамбль + Ваш классификатор сцен")
+    print("CV = Ваш ансамбль + Ваш классификатор сцен (YOLO)")
     print("="*60)
+    
+    # Приоритет: YOLO сцена > MobileNet сцена
+    scene_path = None
+    if Path("models/scene_classifier_yolo.pt").exists():
+        scene_path = "models/scene_classifier_yolo.pt"
+    elif Path("models/scene_classifier.pt").exists():
+        scene_path = "models/scene_classifier.pt"
     
     vlm = CompleteVLM(
         yolo_path="models/yolo/yolov8x/best.pt",
         detr_path="models/rt-detr/rt-detr-101/m",
         detr_processor_path="models/rt-detr/rt-detr-101/p",
-        scene_classifier_path="models/scene_classifier.pt",
+        scene_classifier_path=scene_path,
         conf_threshold=0.5
     )
     

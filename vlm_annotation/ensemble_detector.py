@@ -1,7 +1,3 @@
-"""
-Ensemble detector для объединения результатов YOLO и RT-DETR моделей
-"""
-
 import torch
 import numpy as np
 from PIL import Image
@@ -12,50 +8,37 @@ import supervision as sv
 
 MODEL_WEIGHTS = {
     "YOLOv8x": {
-        "plastic": 0.8967,
-        "glass": 0.8847,
-        "metal": 0.8705,
-        "paper": 0.7299,
-        "organic": 0.6151,
+        "glass": 0.1694,
+        "metal": 0.3754,
+        "organic": 0.2789,
+        "paper": 0.2940,
+        "plastic": 0.0000,
     },
     "RT-DETR-101": {
-        "plastic": 0.8967,
-        "glass": 0.8847,
-        "metal": 0.8705,
-        "paper": 0.7299,
-        "organic": 0.6151,
+        "glass": 0.5593,
+        "metal": 1.0000,
+        "organic": 0.6617,
+        "paper": 1.0000,
+        "plastic": 1.0000,
     }
 }
-
-# Классы для игнорирования
 IGNORED_CLASSES = {'garb-garbage'}
 
 CONFIDENCE_DELTA_THRESHOLD = 0.5
 
 
 class EnsembleDetector:
-    """Ансамбль моделей детекции объектов"""
     
     def __init__(self, yolo_model_path: str, detr_model_path: str, detr_processor_path: str, 
                  device: str = None, conf_threshold: float = 0.3):
-        """
-        Args:
-            yolo_model_path: путь к модели YOLO (.pt файл)
-            detr_model_path: путь к модели RT-DETR (директория m/)
-            detr_processor_path: путь к процессору RT-DETR (директория p/)
-            device: устройство для вычислений ('cuda' или 'cpu')
-            conf_threshold: порог уверенности для детекций
-        """
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.conf_threshold = conf_threshold
         self.class_names = ['garb-garbage', 'glass', 'metal', 'organic', 'paper', 'plastic']
         
-        # Загрузка YOLO
         print(f"Loading YOLO model from {yolo_model_path}...")
         self.yolo_model = YOLO(yolo_model_path)
         self.yolo_model.to(self.device)
         
-        # Загрузка RT-DETR
         print(f"Loading RT-DETR model from {detr_model_path}...")
         self.detr_processor = RTDetrImageProcessor.from_pretrained(
             detr_processor_path, local_files_only=True, use_fast=True
@@ -66,12 +49,10 @@ class EnsembleDetector:
         self.detr_model.eval()
         
     def calibrate_confidence(self, confidence: float, model_name: str, class_name: str) -> float:
-        """Калибровка уверенности на основе весов модели"""
         weight = MODEL_WEIGHTS[model_name].get(class_name.lower(), 1.0)
         return confidence * np.sqrt(weight) if weight > 0 else confidence
     
     def calculate_iou(self, box1: np.ndarray, box2: np.ndarray) -> float:
-        """Вычисление IoU между двумя bbox"""
         x1 = max(box1[0], box2[0])
         y1 = max(box1[1], box2[1])
         x2 = min(box1[2], box2[2])
@@ -86,7 +67,6 @@ class EnsembleDetector:
     
     def match_detections(self, yolo_detections: list, detr_detections: list, 
                         iou_threshold: float = 0.3) -> list:
-        """Сопоставление детекций между YOLO и RT-DETR"""
         matched = []
         used_detr = set()
         
@@ -110,7 +90,6 @@ class EnsembleDetector:
         return matched
     
     def ensemble_predictions(self, yolo_det: dict, detr_det: dict) -> tuple:
-        """Объединение предсказаний двух моделей"""
         yolo_label = yolo_det['label']
         yolo_conf = yolo_det['confidence']
         detr_label = detr_det['label']
@@ -128,7 +107,6 @@ class EnsembleDetector:
             else:
                 return detr_label, detr_conf_calibrated, detr_det['box']
         
-        # Вычисление взвешенного среднего для всех классов
         combined_scores = {}
         for class_name in self.class_names:
             yolo_score = yolo_conf_calibrated if yolo_label == class_name else 0
@@ -142,26 +120,11 @@ class EnsembleDetector:
                 combined_scores[class_name] = 0
         
         best_class_name, best_score = max(combined_scores.items(), key=lambda x: x[1])
-        avg_box = yolo_det['box']  # Используем bbox от YOLO
+        avg_box = yolo_det['box']
         
         return best_class_name, best_score, avg_box
     
     def detect(self, image: Image.Image) -> list:
-        """
-        Детекция объектов на изображении
-        
-        Returns:
-            Список словарей с детекциями:
-            [
-                {
-                    'box': [x1, y1, x2, y2],
-                    'label': 'glass',
-                    'confidence': 0.95
-                },
-                ...
-            ]
-        """
-        # Детекция YOLO
         yolo_results = self.yolo_model(image, verbose=False)
         yolo_detections_sv = sv.Detections.from_ultralytics(yolo_results[0])
         
@@ -179,7 +142,6 @@ class EnsembleDetector:
             if conf >= self.conf_threshold
         ]
         
-        # Детекция RT-DETR
         inputs = self.detr_processor(image, return_tensors="pt").to(self.device)
         with torch.no_grad():
             outputs = self.detr_model(**inputs)
@@ -204,13 +166,11 @@ class EnsembleDetector:
             if conf >= self.conf_threshold
         ]
         
-        # Объединение результатов
         matched = self.match_detections(yolo_dets, detr_dets)
         ensemble_detections = []
         matched_yolo = {m[0] for m in matched}
         matched_detr = {m[1] for m in matched}
         
-        # Объединенные детекции
         for yolo_idx, detr_idx in matched:
             label, conf, box = self.ensemble_predictions(yolo_dets[yolo_idx], detr_dets[detr_idx])
             ensemble_detections.append({
@@ -219,7 +179,6 @@ class EnsembleDetector:
                 'confidence': float(conf)
             })
         
-        # Несовпадающие детекции YOLO
         for idx, det in enumerate(yolo_dets):
             if idx not in matched_yolo:
                 ensemble_detections.append({
@@ -228,7 +187,6 @@ class EnsembleDetector:
                     'confidence': float(self.calibrate_confidence(det['confidence'], "YOLOv8x", det['label']))
                 })
         
-        # Несовпадающие детекции RT-DETR
         for idx, det in enumerate(detr_dets):
             if idx not in matched_detr:
                 ensemble_detections.append({
@@ -237,11 +195,9 @@ class EnsembleDetector:
                     'confidence': float(self.calibrate_confidence(det['confidence'], "RT-DETR-101", det['label']))
                 })
         
-        # Фильтрация игнорируемых классов (например, garb-garbage)
         filtered_detections = [
             det for det in ensemble_detections 
             if det['label'] not in IGNORED_CLASSES
         ]
         
         return filtered_detections
-

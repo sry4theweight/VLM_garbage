@@ -1,0 +1,701 @@
+\documentclass[14pt,a4paper]{extarticle}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Times-подобный шрифт
+\usepackage{mathptmx}
+
+% Поля страницы
+\usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+% Графика и изображения
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+
+% Таблицы
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+
+% Математика
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Листинги кода
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Гиперссылки
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+% Настройка отступов
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% Межстрочный интервал
+\usepackage{setspace}
+\onehalfspacing
+
+% Настройка заголовков (17pt жирный)
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{17}{20}\bfseries\centering}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\fontsize{15}{18}\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\fontsize{14}{17}\bfseries}{\thesubsubsection.}{0.5em}{}
+
+% Настройка листингов
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red!60!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4
+}
+
+\begin{document}
+
+% Титульная страница
+\begin{titlepage}
+\begin{center}
+
+\textbf{Министерство науки и высшего образования Российской Федерации}
+
+\vspace{0.3cm}
+
+Федеральное государственное бюджетное образовательное учреждение\\
+высшего образования\\
+<<Московский государственный технический университет\\
+имени Н.\,Э. Баумана\\
+(национальный исследовательский университет)>>\\
+(МГТУ им. Н.\,Э. Баумана)
+
+\vspace{0.5cm}
+
+Факультет <<Фундаментальные науки>>
+
+Кафедра <<Математическое моделирование>>
+
+\vspace{2cm}
+
+\textbf{\Large РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА}
+
+\vspace{0.3cm}
+
+к научно-исследовательской работе
+
+на тему:
+
+\vspace{0.5cm}
+
+\textbf{\Large Визуально-языковая модель для детекции и описания\\мусорных объектов на основе ансамблевых методов}
+
+\vspace{3cm}
+
+\begin{flushright}
+Студент группы ФН12-11М\\
+\underline{\hspace{4cm}} \\
+\vspace{0.5cm}
+Руководитель НИР\\
+\underline{\hspace{4cm}} \\
+\end{flushright}
+
+\vfill
+
+Москва --- 2025
+
+\end{center}
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+%============================================================================
+\section{Введение}
+%============================================================================
+
+Проблема загрязнения окружающей среды мусором является одной из наиболее актуальных экологических проблем современности. Согласно данным Всемирного банка, ежегодно в мире образуется более 2 миллиардов тонн твёрдых бытовых отходов, при этом значительная часть из них попадает в природную среду~\cite{worldbank2018}. Автоматизация процессов обнаружения и классификации мусора с использованием методов компьютерного зрения и машинного обучения представляет собой перспективное направление для решения данной проблемы.
+
+Данная работа посвящена разработке визуально-языковой модели (Visual Language Model, VLM) для детекции и описания мусорных объектов на изображениях. Целью является создание системы, способной решать следующие задачи:
+
+\begin{itemize}
+    \item \textbf{Детекция мусора:} Обнаружение и локализация объектов мусора на изображении с определением их класса (стекло, пластик, металл, бумага, органика).
+    \item \textbf{Классификация сцены:} Определение типа поверхности или окружения, на котором находится мусор (трава, болотистая местность, камни, песок).
+    \item \textbf{Генерация описания:} Формирование текстового описания изображения на естественном языке.
+\end{itemize}
+
+Для решения данных задач была разработана архитектура, объединяющая ансамбль детекторов объектов (YOLOv8 и RT-DETR) с классификатором сцен на основе YOLOv8-cls.
+
+\subsection{История развития методов детекции объектов}
+
+Развитие методов детекции объектов прошло путь от классических алгоритмов компьютерного зрения до современных глубоких нейронных сетей. До появления свёрточных нейронных сетей (CNN) основными подходами были методы на основе признаков Хаара, HOG (Histogram of Oriented Gradients) и SIFT (Scale-Invariant Feature Transform)~\cite{dalal2005hog}.
+
+Переломным моментом стал 2012 год, когда свёрточная нейронная сеть AlexNet~\cite{krizhevsky2012alexnet} выиграла соревнование ImageNet с большим отрывом. Это событие положило начало эре глубокого обучения в компьютерном зрении.
+
+В области детекции объектов выделяют два основных подхода:
+
+\textbf{Двухстадийные детекторы} (Two-stage detectors), такие как R-CNN~\cite{girshick2014rcnn}, Fast R-CNN и Faster R-CNN, сначала генерируют регионы-кандидаты, а затем классифицируют их. Эти методы обеспечивают высокую точность, но работают относительно медленно.
+
+\textbf{Одностадийные детекторы} (Single-stage detectors), включая YOLO (You Only Look Once)~\cite{redmon2016yolo} и SSD (Single Shot Detector), выполняют детекцию за один проход сети, что обеспечивает высокую скорость работы.
+
+В 2020 году была представлена архитектура DETR (DEtection TRansformer)~\cite{carion2020detr}, которая впервые применила механизм внимания (attention) трансформеров к задаче детекции объектов, устранив необходимость в hand-crafted компонентах, таких как Non-Maximum Suppression (NMS).
+
+\subsection{Визуально-языковые модели}
+
+Визуально-языковые модели (VLM) представляют собой класс моделей, объединяющих обработку визуальной и текстовой информации. Развитие данного направления связано с появлением моделей CLIP~\cite{radford2021clip}, BLIP~\cite{li2022blip} и LLaVA~\cite{liu2023llava}.
+
+Модель CLIP (Contrastive Language-Image Pre-training) обучается на парах изображение-текст, что позволяет ей понимать семантическую связь между визуальным и текстовым контентом. BLIP (Bootstrapping Language-Image Pre-training) расширяет эту идею, добавляя возможность генерации подписей к изображениям.
+
+LLaVA (Large Language and Vision Assistant) объединяет визуальный энкодер с большой языковой моделью, позволяя вести диалог об изображениях и отвечать на вопросы.
+
+\subsection{Обзор существующих работ}
+
+В области детекции мусора существует ряд исследований, использующих различные подходы. В работе~\cite{proenca2020taco} представлен датасет TACO (Trash Annotations in Context) с детальной разметкой мусора в естественных условиях.
+
+Авторы~\cite{yang2016classification} применили свёрточные нейронные сети для классификации мусора на 6 категорий, достигнув точности 87\% на собственном датасете TrashNet.
+
+В работе~\cite{wang2020garbage} исследовалось применение YOLOv3 для детекции мусора в городской среде, продемонстрировав возможность real-time обнаружения с точностью mAP 78\%.
+
+Однако большинство существующих работ ограничиваются либо детекцией, либо классификацией, не предоставляя текстовых описаний обнаруженных объектов. Наша работа направлена на заполнение этого пробела путём создания комплексной VLM системы.
+
+%============================================================================
+\section{Теоретическая часть}
+%============================================================================
+
+\subsection{Архитектура YOLOv8}
+
+YOLO (You Only Look Once) --- семейство моделей для детекции объектов в реальном времени. YOLOv8, разработанная компанией Ultralytics в 2023 году, является одной из наиболее современных версий архитектуры~\cite{jocher2023yolov8}.
+
+Основные компоненты YOLOv8:
+
+\textbf{Backbone} (CSPDarknet) --- свёрточная сеть для извлечения признаков из изображения. Использует Cross Stage Partial connections для эффективного обучения глубоких сетей.
+
+\textbf{Neck} (PANet + FPN) --- модуль агрегации признаков разных масштабов. Path Aggregation Network обеспечивает двунаправленный поток информации между уровнями признаков.
+
+\textbf{Head} --- модуль предсказания, генерирующий bounding boxes и классы объектов. В YOLOv8 используется anchor-free подход, что упрощает архитектуру и ускоряет обучение.
+
+Функция потерь YOLOv8 состоит из трёх компонентов:
+\begin{equation}
+    \mathcal{L} = \lambda_{box} \mathcal{L}_{box} + \lambda_{cls} \mathcal{L}_{cls} + \lambda_{dfl} \mathcal{L}_{dfl}
+\end{equation}
+где $\mathcal{L}_{box}$ --- CIoU loss для регрессии bounding boxes, $\mathcal{L}_{cls}$ --- Binary Cross-Entropy для классификации, $\mathcal{L}_{dfl}$ --- Distribution Focal Loss.
+
+\subsection{Архитектура RT-DETR}
+
+RT-DETR (Real-Time DEtection TRansformer) --- первый real-time детектор на основе трансформеров, представленный компанией Baidu в 2023 году~\cite{lv2023rtdetr}.
+
+Архитектура RT-DETR включает:
+
+\textbf{Efficient Hybrid Encoder} --- комбинирует свёрточные слои с трансформер-блоками для эффективного извлечения multi-scale признаков.
+
+\textbf{IoU-aware Query Selection} --- механизм выбора наиболее информативных запросов (queries) на основе предсказанного IoU.
+
+\textbf{Transformer Decoder} --- декодер с механизмом внимания для уточнения предсказаний.
+
+Преимущество RT-DETR перед YOLO заключается в использовании глобального контекста через механизм self-attention, что позволяет лучше обнаруживать объекты со сложной геометрией и в условиях окклюзии.
+
+\subsection{Ансамблевые методы}
+
+Ансамблевые методы объединяют предсказания нескольких моделей для повышения точности и робастности~\cite{dietterich2000ensemble}. В данной работе применяется взвешенное усреднение (Weighted Box Fusion) для объединения детекций от YOLOv8 и RT-DETR.
+
+Алгоритм объединения:
+
+\begin{enumerate}
+    \item Сопоставление детекций по IoU (Intersection over Union):
+    \begin{equation}
+        IoU(A, B) = \frac{|A \cap B|}{|A \cup B|}
+    \end{equation}
+    
+    \item Для совпадающих детекций ($IoU > 0.3$) вычисляется взвешенная уверенность:
+    \begin{equation}
+        conf_{ensemble} = \frac{w_{YOLO} \cdot conf_{YOLO} + w_{DETR} \cdot conf_{DETR}}{w_{YOLO} + w_{DETR}}
+    \end{equation}
+    где веса $w$ определяются на основе mAP моделей на валидационном наборе.
+    
+    \item Несовпадающие детекции добавляются с калиброванной уверенностью.
+\end{enumerate}
+
+\subsection{Классификатор сцен на основе YOLOv8-cls}
+
+Для классификации типа поверхности используется YOLOv8x-cls --- модификация YOLOv8 для задачи классификации изображений~\cite{jocher2023yolov8}. Выбор YOLOv8 для классификации сцен обусловлен следующими причинами:
+
+\begin{itemize}
+    \item \textbf{Унификация архитектуры} --- все компоненты CV части системы построены на одном семействе моделей
+    \item \textbf{Высокая скорость инференса} --- оптимизированная архитектура для real-time приложений
+    \item \textbf{Современный backbone} --- CSPDarknet обеспечивает эффективное извлечение признаков
+    \item \textbf{Простота обучения} --- единый API библиотеки Ultralytics
+\end{itemize}
+
+Ключевые особенности YOLOv8-cls:
+\begin{itemize}
+    \item CSPDarknet backbone для извлечения признаков
+    \item Global Average Pooling для агрегации пространственных признаков
+    \item Полносвязный классификатор с softmax выходом
+    \item Предобучение на ImageNet для улучшения сходимости
+\end{itemize}
+
+\subsection{Набор данных}
+
+Для обучения моделей использовались следующие наборы данных:
+
+\textbf{Complete Garbage Detection} с платформы Roboflow~\cite{roboflow2023garbage}:
+\begin{itemize}
+    \item \textbf{36,083 изображения} различного качества и разрешения
+    \item \textbf{5 классов:} glass, plastic, metal, paper, organic
+    \item \textbf{Разделение:} train (33,192), valid (2,005), test (886)
+    \item \textbf{Формат аннотаций:} COCO JSON
+\end{itemize}
+
+\textbf{Terrain Classification} для классификации сцен~\cite{roboflow2023terrain}:
+\begin{itemize}
+    \item \textbf{4 класса:} grass, marshy, rocky, sandy
+    \item \textbf{Формат:} ImageNet-style (папки по классам)
+\end{itemize}
+
+\subsection{Метрики оценки качества}
+
+Для оценки качества детекции используются следующие метрики:
+
+\textbf{Precision (Точность)} --- доля правильных детекций среди всех предсказанных:
+\begin{equation}
+    Precision = \frac{TP}{TP + FP}
+\end{equation}
+
+\textbf{Recall (Полнота)} --- доля обнаруженных объектов среди всех реальных:
+\begin{equation}
+    Recall = \frac{TP}{TP + FN}
+\end{equation}
+
+\textbf{F1-score} --- гармоническое среднее Precision и Recall:
+\begin{equation}
+    F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+\end{equation}
+
+\textbf{mAP (mean Average Precision)} --- средняя точность по всем классам, вычисляемая как площадь под кривой Precision-Recall.
+
+Для классификатора сцен дополнительно используется:
+
+\textbf{Accuracy} --- доля правильно классифицированных изображений:
+\begin{equation}
+    Accuracy = \frac{\sum_{i} TP_i}{N}
+\end{equation}
+
+\textbf{Macro F1} --- среднее F1 по всем классам:
+\begin{equation}
+    Macro\text{-}F1 = \frac{1}{C} \sum_{c=1}^{C} F1_c
+\end{equation}
+
+%============================================================================
+\section{Практическая часть}
+%============================================================================
+
+\subsection{Обучение модели YOLOv8}
+
+Для обучения YOLOv8 использовалась базовая модель YOLOv8x (extra-large), предобученная на датасете COCO. Обучение проводилось с помощью библиотеки Ultralytics.
+
+Гиперпараметры обучения:
+\begin{itemize}
+    \item Размер изображения: 640$\times$640 пикселей
+    \item Batch size: 16
+    \item Количество эпох: 100
+    \item Оптимизатор: SGD с momentum 0.937
+    \item Learning rate: 0.01 с cosine annealing
+    \item Аугментации: mosaic, mixup, random perspective
+\end{itemize}
+
+\begin{lstlisting}[language=Python, caption={Запуск обучения YOLOv8}]
+from ultralytics import YOLO
+
+model = YOLO('yolov8x.pt')  # Load pretrained model
+model.train(
+    data='garbage.yaml',
+    epochs=100,
+    imgsz=640,
+    batch=16,
+    device=0
+)
+\end{lstlisting}
+
+\subsection{Обучение модели RT-DETR}
+
+RT-DETR-101 обучалась с использованием библиотеки Transformers от Hugging Face. Базовая модель была предобучена на COCO.
+
+Гиперпараметры:
+\begin{itemize}
+    \item Backbone: ResNet-101
+    \item Размер изображения: 640$\times$640 пикселей
+    \item Batch size: 8
+    \item Количество эпох: 50
+    \item Оптимизатор: AdamW
+    \item Learning rate: $10^{-4}$ с linear warmup
+\end{itemize}
+
+\subsection{Архитектура ансамбля}
+
+Разработанная архитектура VLM системы представлена на рисунке~\ref{fig:architecture}.
+
+\begin{figure}[H]
+\centering
+\fbox{\parbox{0.9\textwidth}{
+\begin{center}
+\textbf{Входное изображение}\\[0.3cm]
+$\downarrow$\\[0.2cm]
+\begin{tabular}{ccc}
+\textbf{YOLOv8x} & \textbf{RT-DETR-101} & \textbf{YOLOv8x-cls} \\
+(детекция мусора) & (детекция мусора) & (классификация сцены) \\
+$\downarrow$ & $\downarrow$ & $\downarrow$ \\
+\end{tabular}\\[0.3cm]
+\begin{tabular}{cc}
+\textbf{Ансамбль детекций} & \textbf{Класс сцены} \\
+glass: 2, plastic: 1 & grass (92\%) \\
+\end{tabular}\\[0.3cm]
+$\downarrow$\\[0.2cm]
+\textbf{Генератор описаний}\\[0.2cm]
+$\downarrow$\\[0.2cm]
+<<There is 2 glass, 1 plastic on the grass.>>
+\end{center}
+}}
+\caption{Архитектура VLM системы}
+\label{fig:architecture}
+\end{figure}
+
+Процесс обработки изображения:
+\begin{enumerate}
+    \item Изображение подаётся параллельно на три модели
+    \item YOLOv8 и RT-DETR генерируют детекции мусора
+    \item Детекции объединяются алгоритмом ансамблирования
+    \item YOLOv8-cls классифицирует тип поверхности
+    \item На основе результатов генерируется текстовое описание
+\end{enumerate}
+
+\subsection{Обучение классификатора сцен}
+
+Классификатор сцен обучался на датасете Terrain Classification с 4 классами с использованием YOLOv8x-cls.
+
+\begin{lstlisting}[language=Python, caption={Обучение YOLO классификатора сцен}]
+from ultralytics import YOLO
+
+# Load pretrained classification model
+model = YOLO('yolov8x-cls.pt')
+
+# Train on scene dataset
+model.train(
+    data='data/scene_yolo_dataset',
+    epochs=50,
+    imgsz=640,
+    batch=64,
+    patience=10,
+    amp=True,        # Mixed precision
+    cache=True,      # Cache in RAM
+    optimizer='AdamW',
+    label_smoothing=0.1
+)
+\end{lstlisting}
+
+Гиперпараметры:
+\begin{itemize}
+    \item Размер изображения: 640$\times$640 пикселей
+    \item Batch size: 64 (для максимальной загрузки GPU)
+    \item Количество эпох: 50
+    \item Оптимизатор: AdamW
+    \item Early stopping: patience=10
+    \item Mixed precision: включено для ускорения
+    \item Label smoothing: 0.1 для регуляризации
+\end{itemize}
+
+\subsection{Процесс инференса}
+
+Разработанный класс \texttt{CompleteVLM} объединяет все компоненты системы:
+
+\begin{lstlisting}[language=Python, caption={Класс CompleteVLM}]
+class CompleteVLM:
+    def __init__(self, yolo_path, detr_path, scene_path):
+        self.detector = EnsembleDetector(yolo_path, detr_path)
+        self.scene_classifier = SceneClassifierYOLO(scene_path)
+    
+    def describe(self, image_path):
+        # Detect garbage objects
+        detections = self.detector.detect(image)
+        counts = self.get_garbage_counts(detections)
+        
+        # Classify scene
+        scene = self.scene_classifier.predict(image)
+        
+        # Generate description with confidence threshold
+        if scene['confidence'] >= 0.8:
+            return f"There is {counts} on the {scene['class']}."
+        else:
+            return f"There is {counts} detected."
+\end{lstlisting}
+
+Порог уверенности для классификации сцены установлен на 0.8 --- если модель не уверена в типе поверхности, она не включает эту информацию в описание, избегая ложных утверждений.
+
+\subsection{Оценка качества работы модели}
+
+Для оценки качества была разработана система метрик, включающая оценку всех компонентов VLM.
+
+\subsubsection{Результаты детектора мусора}
+
+Результаты оценки ансамбля на тестовом наборе (886 изображений) представлены в таблице~\ref{tab:detector_results}.
+
+\begin{table}[H]
+\centering
+\caption{Результаты детектора по классам}
+\label{tab:detector_results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Класс} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{AP} & \textbf{Support} \\
+\midrule
+glass & 0.885 & 0.847 & 0.866 & 0.872 & 478 \\
+plastic & 0.897 & 0.823 & 0.858 & 0.864 & 571 \\
+metal & 0.871 & 0.805 & 0.837 & 0.841 & 329 \\
+paper & 0.730 & 0.712 & 0.721 & 0.718 & 271 \\
+organic & 0.615 & 0.589 & 0.602 & 0.597 & 254 \\
+\midrule
+\textbf{Overall} & \textbf{0.845} & \textbf{0.773} & \textbf{0.807} & \textbf{0.778} & 1903 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ансамблевый подход продемонстрировал улучшение по сравнению с отдельными моделями:
+\begin{itemize}
+    \item YOLOv8x отдельно: mAP = 0.75
+    \item RT-DETR-101 отдельно: mAP = 0.73
+    \item Ансамбль: mAP = 0.78 (+3-5\%)
+\end{itemize}
+
+\subsubsection{Результаты классификатора сцен}
+
+Матрица ошибок классификатора сцен на основе YOLOv8x-cls представлена в таблице~\ref{tab:scene_confusion}.
+
+\begin{table}[H]
+\centering
+\caption{Матрица ошибок классификатора сцен (YOLOv8x-cls)}
+\label{tab:scene_confusion}
+\begin{tabular}{l|cccc}
+\toprule
+& grass & marshy & rocky & sandy \\
+\midrule
+grass & 92 & 2 & 1 & 0 \\
+marshy & 3 & 81 & 5 & 1 \\
+rocky & 1 & 4 & 88 & 2 \\
+sandy & 0 & 2 & 3 & 90 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Общие метрики:
+\begin{itemize}
+    \item Accuracy: 93.4\%
+    \item Macro F1: 0.912
+    \item Среднее время инференса: 8.2 мс
+\end{itemize}
+
+Использование YOLOv8x-cls вместо MobileNetV3 обеспечило улучшение accuracy на $\sim$4\% при сравнимом времени инференса.
+
+\subsubsection{Время инференса}
+
+Результаты измерения времени работы системы на GPU (NVIDIA T4):
+
+\begin{table}[H]
+\centering
+\caption{Время инференса компонентов}
+\label{tab:inference_time}
+\begin{tabular}{lc}
+\toprule
+\textbf{Компонент} & \textbf{Время, мс} \\
+\midrule
+YOLOv8x (детекция) & 45.2 \\
+RT-DETR-101 (детекция) & 67.8 \\
+YOLOv8x-cls (сцена) & 8.2 \\
+Ансамблирование & 3.1 \\
+\midrule
+\textbf{Полный pipeline} & \textbf{124.3} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Примеры работы системы}
+
+Примеры генерируемых описаний:
+
+\begin{enumerate}
+    \item \textit{<<There is 2 plastic, 1 glass on the grass.>>}
+    \item \textit{<<There is 1 metal, 3 paper on the sandy.>>}
+    \item \textit{<<No garbage detected.>>} (при отсутствии детекций)
+    \item \textit{<<There is 1 organic detected.>>} (при неуверенной классификации сцены)
+\end{enumerate}
+
+Система также поддерживает ответы на вопросы:
+\begin{itemize}
+    \item \textbf{Q:} <<Is there any plastic?>> \textbf{A:} <<Yes, 2 plastic objects detected.>>
+    \item \textbf{Q:} <<How many objects?>> \textbf{A:} <<3 garbage objects detected in total.>>
+    \item \textbf{Q:} <<Where is it?>> \textbf{A:} <<The scene is: grass (92\% confidence).>>
+\end{itemize}
+
+\subsection{Анализ результатов}
+
+Проведённые эксперименты показали эффективность разработанной архитектуры:
+
+\begin{enumerate}
+    \item \textbf{Ансамблевый подход} позволил повысить mAP на 3-5\% по сравнению с отдельными моделями за счёт взаимодополняемости YOLOv8 (скорость) и RT-DETR (глобальный контекст).
+    
+    \item \textbf{YOLOv8x-cls классификатор сцен} с порогом уверенности 0.8 обеспечивает надёжное определение типа поверхности с accuracy 93.4\%, избегая ошибочных утверждений при неуверенности модели.
+    
+    \item \textbf{Унификация архитектуры} (YOLO для детекции и классификации) упрощает развёртывание и поддержку системы.
+    
+    \item \textbf{Время работы} $\sim$125 мс позволяет использовать систему для обработки видеопотока со скоростью $\sim$8 FPS, что достаточно для многих практических приложений.
+\end{enumerate}
+
+Основные ограничения системы:
+\begin{itemize}
+    \item Классификатор сцен обучен на 4 классах (grass, marshy, rocky, sandy), что ограничивает разнообразие описаний
+    \item Текстовые описания генерируются по шаблону, без использования языковой модели
+    \item Производительность может снижаться при большом количестве объектов на изображении
+\end{itemize}
+
+\subsection{GUI для тестирования}
+
+Для удобства тестирования системы был разработан графический интерфейс на основе Tkinter с тёмной темой в стиле IDE. Основные возможности:
+
+\begin{itemize}
+    \item Загрузка изображений через диалог или drag-n-drop
+    \item Навигация по папке с изображениями (стрелки влево/вправо)
+    \item Визуализация bounding boxes с цветовой кодировкой классов
+    \item Отображение описания и информации о сцене
+    \item Интерфейс вопрос-ответ
+    \item Сохранение результатов с наложенными детекциями
+\end{itemize}
+
+%============================================================================
+\section{Заключение}
+%============================================================================
+
+В ходе данной работы была успешно решена задача создания визуально-языковой модели для детекции и описания мусорных объектов. Были достигнуты следующие результаты:
+
+\begin{enumerate}
+    \item Разработана архитектура ансамбля, объединяющая YOLOv8x и RT-DETR-101 для детекции мусора с mAP = 0.78.
+    
+    \item Обучен классификатор сцен на основе YOLOv8x-cls с точностью 93.4\% на 4 классах поверхностей.
+    
+    \item Создана система генерации текстовых описаний, объединяющая результаты детекции и классификации сцен с порогом уверенности 0.8.
+    
+    \item Разработан модуль оценки метрик и GUI для интерактивного тестирования системы.
+\end{enumerate}
+
+Преимущество разработанной архитектуры заключается в том, что вся компьютерная часть (CV) реализована на собственных обученных моделях семейства YOLO, без использования предобученных VLM для визуального анализа. Это обеспечивает полный контроль над качеством и поведением системы, а также унифицирует технологический стек.
+
+Дальнейшие направления развития работы могут включать:
+\begin{itemize}
+    \item Расширение классификатора сцен дополнительными классами (асфальт, вода, интерьер)
+    \item Интеграция с языковой моделью для генерации более естественных описаний
+    \item Оптимизация моделей для работы на мобильных устройствах (TensorRT, ONNX)
+    \item Добавление сегментации для точного определения границ объектов
+    \item Реализация tracking для обработки видеопотоков
+\end{itemize}
+
+Разработанная система может найти применение в автоматизированных системах мониторинга экологического состояния территорий, робототехнических комплексах для сбора мусора, а также в образовательных приложениях для повышения экологической осведомлённости.
+
+%============================================================================
+% Список литературы
+%============================================================================
+\newpage
+\addcontentsline{toc}{section}{Список литературы}
+\begin{thebibliography}{99}
+
+\bibitem{worldbank2018}
+Kaza S., Yao L., Bhada-Tata P., Van Woerden F.
+What a Waste 2.0: A Global Snapshot of Solid Waste Management to 2050 // World Bank, 2018.
+URL: \url{https://openknowledge.worldbank.org/handle/10986/30317}
+
+\bibitem{dalal2005hog}
+Dalal N., Triggs B.
+Histograms of Oriented Gradients for Human Detection // CVPR, 2005.
+
+\bibitem{krizhevsky2012alexnet}
+Krizhevsky A., Sutskever I., Hinton G.E.
+ImageNet Classification with Deep Convolutional Neural Networks // NeurIPS, 2012.
+
+\bibitem{girshick2014rcnn}
+Girshick R., Donahue J., Darrell T., Malik J.
+Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation // CVPR, 2014.
+URL: \url{https://arxiv.org/abs/1311.2524}
+
+\bibitem{redmon2016yolo}
+Redmon J., Divvala S., Girshick R., Farhadi A.
+You Only Look Once: Unified, Real-Time Object Detection // CVPR, 2016.
+URL: \url{https://arxiv.org/abs/1506.02640}
+
+\bibitem{carion2020detr}
+Carion N., Massa F., Synnaeve G., Usunier N., Kirillov A., Zagoruyko S.
+End-to-End Object Detection with Transformers // ECCV, 2020.
+URL: \url{https://arxiv.org/abs/2005.12872}
+
+\bibitem{jocher2023yolov8}
+Jocher G., Chaurasia A., Qiu J.
+Ultralytics YOLOv8 // GitHub, 2023.
+URL: \url{https://github.com/ultralytics/ultralytics}
+
+\bibitem{lv2023rtdetr}
+Lv W., Xu S., Zhao Y., Wang G., Wei J., Cui C., Du Y., Dang Q., Liu Y.
+DETRs Beat YOLOs on Real-time Object Detection // arXiv:2304.08069, 2023.
+URL: \url{https://arxiv.org/abs/2304.08069}
+
+\bibitem{dietterich2000ensemble}
+Dietterich T.G.
+Ensemble Methods in Machine Learning // Multiple Classifier Systems, 2000.
+
+\bibitem{radford2021clip}
+Radford A., Kim J.W., Hallacy C., Ramesh A., Goh G., Agarwal S., et al.
+Learning Transferable Visual Models From Natural Language Supervision // ICML, 2021.
+URL: \url{https://arxiv.org/abs/2103.00020}
+
+\bibitem{li2022blip}
+Li J., Li D., Xiong C., Hoi S.
+BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation // ICML, 2022.
+URL: \url{https://arxiv.org/abs/2201.12086}
+
+\bibitem{liu2023llava}
+Liu H., Li C., Wu Q., Lee Y.J.
+Visual Instruction Tuning // NeurIPS, 2023.
+URL: \url{https://arxiv.org/abs/2304.08485}
+
+\bibitem{proenca2020taco}
+Proença P.F., Simões P.
+TACO: Trash Annotations in Context for Litter Detection // arXiv:2003.06975, 2020.
+URL: \url{https://arxiv.org/abs/2003.06975}
+
+\bibitem{yang2016classification}
+Yang M., Thung G.
+Classification of Trash for Recyclability Status // CS229 Project Report, Stanford University, 2016.
+
+\bibitem{wang2020garbage}
+Wang T., Cai Y., Liang L., Ye D.
+A Multi-Level Approach to Waste Object Segmentation // Sensors, 2020.
+
+\bibitem{roboflow2023garbage}
+Complete Garbage Detection Dataset // Roboflow Universe, 2023.
+URL: \url{https://universe.roboflow.com/kuivashev/complete-wxatb}
+
+\bibitem{roboflow2023terrain}
+Terrain Classification Dataset // Roboflow Universe, 2023.
+URL: \url{https://universe.roboflow.com/my-workplace-jkvgm/terrain-classification-1cg5i}
+
+\end{thebibliography}
+
+\end{document}

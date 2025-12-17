@@ -1,0 +1,82 @@
+\relax 
+\providecommand\babel@aux[2]{}
+\@nameuse{bbl@beforestart}
+\catcode `"\active 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\babel@aux{russian}{}
+\citation{worldbank2018}
+\citation{dalal2005hog}
+\citation{krizhevsky2012alexnet}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Введение}{2}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}История развития методов детекции объектов}{2}{subsection.1.1}\protected@file@percent }
+\citation{girshick2014rcnn}
+\citation{redmon2016yolo}
+\citation{carion2020detr}
+\citation{radford2021clip}
+\citation{li2022blip}
+\citation{liu2023llava}
+\citation{proenca2020taco}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Визуально-языковые модели}{3}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Обзор существующих работ}{3}{subsection.1.3}\protected@file@percent }
+\citation{yang2016classification}
+\citation{wang2020garbage}
+\citation{jocher2023yolov8}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Теоретическая часть}{4}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Архитектура YOLOv8}{4}{subsection.2.1}\protected@file@percent }
+\citation{lv2023rtdetr}
+\citation{dietterich2000ensemble}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Архитектура RT-DETR}{5}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Ансамблевые методы}{5}{subsection.2.3}\protected@file@percent }
+\citation{jocher2023yolov8}
+\citation{roboflow2023garbage}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Классификатор сцен на основе YOLOv8-cls}{6}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Набор данных}{6}{subsection.2.5}\protected@file@percent }
+\citation{roboflow2023terrain}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Метрики оценки качества}{7}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Практическая часть}{8}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Обучение модели YOLOv8}{8}{subsection.3.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Запуск обучения YOLOv8}}{8}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Обучение модели RT-DETR}{8}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Архитектура ансамбля}{9}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Архитектура VLM системы}}{9}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:architecture}{{1}{9}{Архитектура VLM системы}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Обучение классификатора сцен}{10}{subsection.3.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces Обучение YOLO классификатора сцен}}{10}{lstlisting.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Процесс инференса}{11}{subsection.3.5}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces Класс CompleteVLM}}{11}{lstlisting.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Оценка качества работы модели}{11}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1}Результаты детектора мусора}{11}{subsubsection.3.6.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Результаты детектора по классам}}{12}{table.caption.2}\protected@file@percent }
+\newlabel{tab:detector_results}{{1}{12}{Результаты детектора по классам}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2}Результаты классификатора сцен}{12}{subsubsection.3.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Матрица ошибок классификатора сцен (YOLOv8x-cls)}}{12}{table.caption.3}\protected@file@percent }
+\newlabel{tab:scene_confusion}{{2}{12}{Матрица ошибок классификатора сцен (YOLOv8x-cls)}{table.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.3}Время инференса}{13}{subsubsection.3.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Время инференса компонентов}}{13}{table.caption.4}\protected@file@percent }
+\newlabel{tab:inference_time}{{3}{13}{Время инференса компонентов}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.4}Примеры работы системы}{13}{subsubsection.3.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Анализ результатов}{13}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}GUI для тестирования}{14}{subsection.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Заключение}{15}{section.4}\protected@file@percent }
+\bibcite{worldbank2018}{1}
+\bibcite{dalal2005hog}{2}
+\bibcite{krizhevsky2012alexnet}{3}
+\bibcite{girshick2014rcnn}{4}
+\bibcite{redmon2016yolo}{5}
+\bibcite{carion2020detr}{6}
+\bibcite{jocher2023yolov8}{7}
+\bibcite{lv2023rtdetr}{8}
+\bibcite{dietterich2000ensemble}{9}
+\bibcite{radford2021clip}{10}
+\bibcite{li2022blip}{11}
+\@writefile{toc}{\contentsline {section}{Список литературы}{17}{Item.20}\protected@file@percent }
+\bibcite{liu2023llava}{12}
+\bibcite{proenca2020taco}{13}
+\bibcite{yang2016classification}{14}
+\bibcite{wang2020garbage}{15}
+\bibcite{roboflow2023garbage}{16}
+\bibcite{roboflow2023terrain}{17}
+\gdef \@abspage@last{19}
